@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { supabase } from '../../services/supabaseClient'
+import Link from "next/link";
 
 export default function SignUp() {
   const [loading, setLoading] = useState(false)
@@ -29,23 +30,34 @@ export default function SignUp() {
     <form
       onSubmit={handleLogin}
     >
-      <label htmlFor="email">Email</label>
+      <div>
+        <label htmlFor="email">Email</label>
+        <Link href='/signin'>
+          <a>
+            <div>Already joined? login to your account</div>
+          </a>
+        </Link>
+      </div>
       <input
         id="email"
         name="email"
         className="inputField"
         type="email"
-        placeholder="Your email"
+        placeholder="john@doe.com"
+        required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <label htmlFor="password">Password</label>
+      <div>
+        <label htmlFor="password">Password</label>
+      </div>
       <input
         id="password"
         name="password"
         className="inputField"
         type="password"
-        placeholder="Your password"
+        placeholder="password"
+        required
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
@@ -55,6 +67,7 @@ export default function SignUp() {
         className="inputField"
         type="password"
         placeholder="repeat your password"
+        required
         value={password2}
         onChange={(e) => setPassword2(e.target.value)}
       />
