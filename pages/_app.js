@@ -6,13 +6,16 @@ import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
 
-  const [session, setSession] = useState(null)
+  const [session, setSession] = useState(null);
+  const [redirectTo, setRedirectTo] = useState('');
   const router = useRouter();
 
   useEffect(() => {
     function setSessionAndRedirect(session) {
       setSession(session)
-      if(!session) {
+      if(!session && router.asPath !== '/') {
+        console.log(router, 'le router');
+        setRedirectTo(router.asPath);
         router.push('/signIn');
       }
     }
@@ -21,10 +24,10 @@ function MyApp({ Component, pageProps }) {
     supabase.auth.onAuthStateChange((_event, session) => {
       setSessionAndRedirect(session)
       if(_event === 'SIGNED_IN') {
-        router.push('/');
+        router.push(redirectTo);
       }
     })
-  }, [])
+  }, [redirectTo])
 
   return(
     <MainLayout>

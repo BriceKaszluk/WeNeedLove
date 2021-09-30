@@ -69,7 +69,7 @@ export default function Account({ session }) {
     <div className="form-widget">
       <div>
         <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={session.user.email} disabled />
+        <input id="email" type="text"  disabled />
       </div>
       <div>
         <label htmlFor="username">Name</label>
