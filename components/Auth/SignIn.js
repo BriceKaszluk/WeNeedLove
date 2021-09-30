@@ -27,7 +27,7 @@ export default function SignIn() {
     >
       <div>
         <label htmlFor="email">Email</label>
-        <Link href='/signup'>
+        <Link href='/signUp'>
           <a>
             <div>New? Sign up for an account</div>
           </a>

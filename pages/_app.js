@@ -1,27 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import '../styles/globals.css';
 import MainLayout from '../components/MainLayout/MainLayout';
-import Account from '../components/Auth/Account';
-import SignUp from '../components/Auth/SignUp';
 import { supabase } from '../services/supabaseClient';
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
 
   const [session, setSession] = useState(null)
+  const router = useRouter();
 
   useEffect(() => {
-    setSession(supabase.auth.session())
+    function setSessionAndRedirect(session) {
+      setSession(session)
+      if(!session) {
+        router.push('/signIn');
+      }
+    }
+    setSessionAndRedirect(supabase.auth.session())
 
     supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
+      setSessionAndRedirect(session)
+      if(_event === 'SIGNED_IN') {
+        router.push('/');
+      }
     })
   }, [])
 
   return(
     <MainLayout>
-      <div className="container" style={{ padding: '50px 0 100px 0' }}>
-        {!session ? <SignUp /> : <Account key={session.user.id} session={session} />}
-      </div>
       <Component {...pageProps} />
     </MainLayout>
   ) 

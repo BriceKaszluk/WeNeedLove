@@ -32,7 +32,7 @@ export default function SignUp() {
     >
       <div>
         <label htmlFor="email">Email</label>
-        <Link href='/signin'>
+        <Link href='/signIn'>
           <a>
             <div>Already joined? login to your account</div>
           </a>
