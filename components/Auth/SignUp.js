@@ -7,7 +7,12 @@ export default function SignUp() {
   const [password, setPassword] = useState('')
   const [password2, setPassword2] = useState('')
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    if(password !== password2) {
+      alert('password dosnt match');
+      return
+    }
     try {
       setLoading(true)
       const { user, session, error } = await supabase.auth.signUp({  email,  password })
@@ -21,38 +26,45 @@ export default function SignUp() {
   }
 
   return (
-    <div className="row flex flex-center">
-      <div className="col-6 form-widget">
-        <h1 className="header">Supabase + Next.js</h1>
-        <p className="description">Sign in via magic link with your email below</p>
-        <div>
-          <input
-            className="inputField"
-            type="email"
-            placeholder="Your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <input
-            className="inputField"
-            type="password"
-            placeholder="Your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div>
-          <button
-            onClick={handleLogin}
-            className="button block"
-            disabled={loading}
-          >
-            <span>{loading ? 'Loading' : 'Send magic link'}</span>
-          </button>
-        </div>
-      </div>
-    </div>
+    <form
+      onSubmit={handleLogin}
+    >
+      <label htmlFor="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        className="inputField"
+        type="email"
+        placeholder="Your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <label htmlFor="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        className="inputField"
+        type="password"
+        placeholder="Your password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <input
+        id="password2"
+        name="password2"
+        className="inputField"
+        type="password"
+        placeholder="repeat your password"
+        value={password2}
+        onChange={(e) => setPassword2(e.target.value)}
+      />
+      <button
+        type="submit"
+        className="button block"
+        disabled={loading}
+      >
+        <span>{loading ? 'Loading' : 'Sign up'}</span>
+      </button>
+    </form>
   )
 }
