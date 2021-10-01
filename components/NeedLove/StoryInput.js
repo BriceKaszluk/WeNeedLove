@@ -1,23 +1,36 @@
 import React, { useState } from 'react';
 import style from './styles/StoryInput.module.scss';
+import { supabase } from '../../services/supabaseClient';
 
 export default function StoryInput() {
 
   const [storyTitle, setStoryTitle] = useState('');
   const [userStory, setUserStory] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if(!storyTitle.length) {
-       return console.log('enter a title');
-    } else if(userStory.length < 50) {
-        return console.log('enter a story');
+    try {
+      const user = supabase.auth.user();
+      const { data, error } = await supabase.from('stories').insert([{ title: storyTitle, text: userStory, user_id: user.id }]);
+      if(data) {
+        setStoryTitle('');
+        setUserStory('');
+        alert('congrats! your story is online!');
       }
-    console.log(storyTitle, userStory, 'form submitted');
+      if(error) {
+        throw error;
+      }
+    }
+    catch (error) {
+      console.error(error);
+    }
   }
 
   return (
-    <form className={style.wrap}>
+    <form 
+    className={style.wrap}
+    onSubmit={handleSubmit}
+    >
       <div className={style.title_input_box} >
         <input 
           className={style.title_input} 
@@ -27,6 +40,7 @@ export default function StoryInput() {
           size="30" 
           spellCheck 
           required
+          value={storyTitle}
           onChange={(e) => {
             setStoryTitle(e.target.value);
           }}
@@ -44,6 +58,7 @@ export default function StoryInput() {
             minLength="50" 
             maxLength="500" 
             required
+            value={userStory}
             onChange={(e) => {
               setUserStory(e.target.value);
             }}
@@ -53,7 +68,6 @@ export default function StoryInput() {
       </div>
       <button 
       className={style.submit_button} 
-      onClick={(e) => {handleSubmit(e)}}
       type="submit" 
       name="submitUserStory"
       >
