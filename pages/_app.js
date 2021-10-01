@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/globals.css';
 import MainLayout from '../components/MainLayout/MainLayout';
 import { supabase } from '../services/supabaseClient';
@@ -11,26 +11,25 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    function setSessionAndRedirect(session) {
-      setSession(session)
-      if(!session && router.asPath !== '/') {
-        console.log(router, 'le router');
-        setRedirectTo(router.asPath);
-        router.push('/signIn');
-      }
+    const notRedirectingUrl = ['/', '/signIn', '/signUp'];
+    if(router?.asPath && !notRedirectingUrl.includes(router.asPath) && !session) {
+      setRedirectTo(router.asPath);
+      router.push('/signIn');
     }
-    setSessionAndRedirect(supabase.auth.session())
+  },[router?.asPath, session])
 
+  useEffect(() => {
+    setSession(supabase.auth.session())
     supabase.auth.onAuthStateChange((_event, session) => {
-      setSessionAndRedirect(session)
+      setSession(session)
       if(_event === 'SIGNED_IN') {
-        router.push(redirectTo);
+        router.push(redirectTo || '/');
       }
     })
   }, [redirectTo])
 
   return(
-    <MainLayout>
+    <MainLayout session={session}>
       <Component {...pageProps} />
     </MainLayout>
   ) 
