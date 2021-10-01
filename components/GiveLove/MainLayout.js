@@ -1,20 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import OneStoryCard from './OneStoryCard';
 import AnswerComment from './AnswerComment';
 import style from './styles/MainLayout.module.scss';
+import { supabase } from '../../services/supabaseClient';
 
 export default function MainLayout() {
 
-  const fakeStory = {
-    title: 'My problem',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pharetra mi eu rutrum aliquet. Donec non suscipit turpis. Maecenas elit justo, rutrum et metus non, ullamcorper volutpat mauris. Cras nec rhoncus mi. Vivamus vitae nunc purus. Aliquam suscipit, odio nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pharetra mi eu rutrum aliquet. Donec non suscipit turpis. Maecenas elit justo, rutrum et metus non, ullamcorper volutpat mauris. Cras nec rhoncus mi. Vivamus vitae nunc purus. Aliquam suscipit, odio nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pharetra mi eu rutrum aliquet. Donec non suscipit turpis. Maecenas elit justo, rutrum et metus non, ullamcorper volu.',
-    image: 'https://cdn.pixabay.com/photo/2021/02/15/08/31/woman-6017024_960_720.jpg'
-  };
+  const [story, setStory] = useState(null);
+  const [loading, setLoading] = useState(true)
+
+  const fetchRandomStory = async () => {
+    try {
+      const { data, error } = await supabase.from('stories').select('id, title, text').limit(1).single()
+      if(error) throw error;
+      if(data) {
+        setStory(data)
+        setLoading(false)
+        console.log(data);
+      }
+    } catch(error) {
+      alert(error.error_description || error.message)
+    }
+  }
+
+  useEffect(() => {
+    fetchRandomStory()
+  },[])
 
   return (
     <div className={style.wrap}>
-      <OneStoryCard story={fakeStory} />
-      <AnswerComment />
+      {
+        story && <OneStoryCard story={story} />
+      }
+      <AnswerComment story={story} />
     </div>
   )
 }
+
+//TODO: rajouter dans le select pour savoir si un user n'a pas déjà comenté un histoire

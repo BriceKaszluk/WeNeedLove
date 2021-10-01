@@ -1,10 +1,10 @@
 import React from 'react';
 import MainLayout from '../components/GiveLove/MainLayout';
 
-function giveLove() {
+function GiveLove() {
   return(
     <MainLayout />
   ) 
 }
 
-export default giveLove
+export default GiveLove

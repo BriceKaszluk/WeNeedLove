@@ -12,17 +12,14 @@ export default function StoryInput() {
     try {
       const user = supabase.auth.user();
       const { data, error } = await supabase.from('stories').insert([{ title: storyTitle, text: userStory, user_id: user.id }]);
+      if(error) throw error;
       if(data) {
         setStoryTitle('');
         setUserStory('');
         alert('congrats! your story is online!');
       }
-      if(error) {
-        throw error;
-      }
-    }
-    catch (error) {
-      console.error(error);
+    } catch (error) {
+      alert(error.error_description || error.message)
     }
   }
 

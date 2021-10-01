@@ -34,10 +34,9 @@ export default function Home() {
             <a className={`${styles.card} ${styles.give_love}`} title='give love'></a>
           </Link>
         </div>
-
-        <a href="https://nextjs.org/docs" className={`${styles.card} ${styles.my_love}`} title='my love'>
-          </a>
-
+        <Link href="/piggy-bank">
+          <a className={`${styles.card} ${styles.my_love}`} title='piggy-bank'></a>
+        </Link>
       </main>
     </div>
   )

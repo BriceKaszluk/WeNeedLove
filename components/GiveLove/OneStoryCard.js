@@ -6,8 +6,7 @@ export default function OneStoryCard({story}) {
   return (
     <div className={style.wrap}>
       <div 
-        className={style.image} 
-        style={{backgroundImage: `url(${story.image})`}}>
+        className={style.image}>
       </div>
       <div className={`${style.ripple} ${style.infos_wrap}`}>
         <h3 className={style.title} >{story.title}</h3>
