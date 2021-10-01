@@ -8,18 +8,21 @@ function MyApp({ Component, pageProps }) {
 
   const [session, setSession] = useState(null);
   const [redirectTo, setRedirectTo] = useState('');
+  const [appStarted, setAppStarted] = useState(true);
+
+  const notRedirectingUrl = ['/', '/signIn', '/signUp'];
   const router = useRouter();
 
   useEffect(() => {
-    const notRedirectingUrl = ['/', '/signIn', '/signUp'];
-    if(router?.asPath && !notRedirectingUrl.includes(router.asPath) && !session) {
+    if(router?.asPath && !notRedirectingUrl.includes(router.asPath) && !session && !appStarted) {
       setRedirectTo(router.asPath);
       router.push('/signIn');
     }
-  },[router?.asPath, session])
+  },[router?.asPath, session, appStarted])
 
   useEffect(() => {
     setSession(supabase.auth.session())
+    setAppStarted(false);
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
       if(_event === 'SIGNED_IN') {
@@ -30,7 +33,9 @@ function MyApp({ Component, pageProps }) {
 
   return(
     <MainLayout session={session}>
-      <Component {...pageProps} />
+      {
+        (router?.asPath && !notRedirectingUrl.includes(router.asPath) && !session) ? 'loading' : <Component {...pageProps} />
+      }
     </MainLayout>
   ) 
 }
