@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/globals.css';
+import '../styles/globals.scss';
 import MainLayout from '../components/MainLayout/MainLayout';
 import { supabase } from '../services/supabaseClient';
 import { useRouter } from "next/router";

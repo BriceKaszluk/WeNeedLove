@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import style from './styles/StoryInput.module.scss';
+import styles from './styles/StoryInput.module.scss';
 import { supabase } from '../../services/supabaseClient';
 
 export default function StoryInput() {
@@ -25,12 +25,11 @@ export default function StoryInput() {
 
   return (
     <form 
-    className={style.wrap}
+    className={styles.wrap}
     onSubmit={handleSubmit}
     >
-      <div className={style.title_input_box} >
+      <div>
         <input 
-          className={style.title_input} 
           type="text" 
           name="story_title" 
           placeholder="My story title" 
@@ -44,10 +43,10 @@ export default function StoryInput() {
         >
         </input>
       </div>
-      <div className={style.text_area_wrap}>
-        <div className={style.text_area_box}>
+      <div>
+        <div className={styles.text_area_box}>
           <textarea 
-            className={style.text_area} 
+            className={styles.text_area} 
             name="story" 
             placeholder="Tell us about your story..." 
             cols="100" 
@@ -63,13 +62,15 @@ export default function StoryInput() {
           </textarea>
         </div>
       </div>
-      <button 
-      className={style.submit_button} 
-      type="submit" 
-      name="submitUserStory"
-      >
-        Share my story
-      </button>
+      <div className="margin_button_wrap">
+        <button 
+        className={`button ${styles.button_margin}`}
+        type="submit" 
+        name="submitUserStory"
+        >
+          <span className={styles.button_text}>Share my story</span>
+        </button>
+      </div>
     </form>
   )
 }

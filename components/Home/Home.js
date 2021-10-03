@@ -13,29 +13,29 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        <h1 className={styles.main_title}>
           WeNeedLove
         </h1>
 
-        <span className={styles.description_2}>
+        <span className={styles.description_1}>
           you are a good person never forget it
         </span>
         
-        <span className={styles.description}>
+        <span className={styles.description_2}>
           Love is Everywhere
         </span>
 
-        <div className={styles.grid}>
+        <div className={styles.icons_grid}>
           <Link href="/need-love">
-            <a className={`${styles.card} ${styles.need_love}`} title='Need love'></a>
+            <a className={`card icon_need_love`} title='Need love'></a>
           </Link>
 
           <Link href="/give-love">
-            <a className={`${styles.card} ${styles.give_love}`} title='give love'></a>
+            <a className={`card icon_give_love`} title='give love'></a>
           </Link>
         </div>
         <Link href="/piggy-bank">
-          <a className={`${styles.card} ${styles.my_love}`} title='piggy-bank'></a>
+          <a className={`card icon_piggy_bank`} title='piggy-bank'></a>
         </Link>
       </main>
     </div>

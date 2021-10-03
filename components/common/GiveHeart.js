@@ -5,7 +5,7 @@ import styles from './styles/GiveHeart.module.scss';
 function needLove() {
   return(
     <Link href="/give-love">
-      <a className={`${styles.card} ${styles.give_love}`} title='give love'></a>
+      <a className={`button_image icon_give_love`} title='give love'></a>
     </Link>
   ) 
 }

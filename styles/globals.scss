@@ -1,0 +1,285 @@
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--black);
+}
+
+:root {
+  --primary: var(--blue-30);
+  --primary-light: var(--blue-50);
+
+  --shade-00: #2d2f34;
+  --shade-05: #3f434a;
+  --shade-10: #5e646e;
+  --shade-20: #6a707c;
+  --shade-30: #acb1b9;
+  --shade-40: #d8dadf;
+  --shade-45: #ecedef;
+  --shade-50: #f1f2f4;
+
+  --red-00: #531313;
+  --red-10: #841515;
+  --red-20: #b11;
+  --red-30: #da2f2f;
+  --red-40: #e64d4d;
+  --red-50: #f26e6e;
+  --red-60: #f58a8a;
+  --red-70: #f8afaf;
+  --red-80: #fee1e1;
+  --red-100: #fef1f1;
+
+  --blue-00: #1c3254;
+  --blue-10: #0d3c82;
+  --blue-20: #0a4ecd;
+  --blue-30: #1668e3;
+  --blue-40: #4588ed;
+  --blue-45: #74a6f1;
+  --blue-50: #a3c4f5;
+  --blue-60: #c8dbf9;
+  --blue-70: #e8f0fd;
+  --blue-100: #f1f6fe;
+
+  --black: #1d1e20;
+  --white: #fdfdfd;
+  --red: #ff5a6e;
+  --yellow: #ffcf59;
+  --yellow-dark: #926400;
+  --sand: #ffe697;
+  --pink: #ffb199;
+  --green: #b8e986;
+  --saturn-orange: #f67748;
+  --moon-dust: #f9efe4;
+  --pink-moon: #eebacb;
+  --tag-default-background: #f5f5f7;
+  --tag-default-color: #72727d;
+  --tag-blue-background: #d4f4f7;
+  --tag-blue-color: #30767e;
+  --tag-green-background: #cffcd6;
+  --tag-green-color: #38794e;
+  --tag-yellow-background: #fff3c2;
+  --tag-yellow-color: #974e00;
+  --tag-orange-background: #ffe6cc;
+  --tag-orange-color: #974e00;
+  --tag-red-background: #ffe6e6;
+  --tag-red-color: #ba1b1b;
+  --tag-mauve-background: #fee6f2;
+  --tag-mauve-color: #b52068;
+  --tag-purple-background: #f0e9fc;
+  --tag-purple-color: #6b34df;
+  --tag-bleu-background: #edf1ff;
+  --tag-bleu-color: #3e57e5;
+  --tag-grey-background: #dbdbdf;
+  --tag-grey-color: #70727e;
+
+  --font-family-title: "Garnett",FixEmoji,sans-serif;
+  --font-family-system: "UniversalSans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  --font-family-monospace: "Source Code Pro",Inconsolata,Monaco,Consolas,"Courier New",Courier,monospace;
+
+  --font-size-smallest: 10px;
+  --font-size-smaller: 11px;
+  --font-size-small: 12px;
+  --font-size-normal: 13px;
+  --font-size-large: 14px;
+  --font-size-larger: 20px;
+  --font-size-largest: 26px;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --line-height-one: 1;
+  --line-height-normal: 1.2em;
+  --line-height-large: 1.4em;
+  --line-height-larger: 1.6em;
+  --line-height-largest: 2em;
+
+  --spacing-smallest: 1px;
+  --spacing-smaller: 2px;
+  --spacing-small: 5px;
+  --spacing-normal: 10px;
+  --spacing-medium: 15px;
+  --spacing-large: 20px;
+  --spacing-larger: 30px;
+  --spacing-largest: 40px;
+  --spacing-huge: 60px;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  height: 40px;
+  outline: none;
+  padding: 0 20px;
+  border-radius: 50px;
+  flex-grow: 1;
+  min-height: 1px;
+  font-size: 13px;
+  border: 1px #d8dadf solid;
+  background-color: var(--shade-50);
+  box-sizing: border-box;
+  font-weight: 700;
+  &::placeholder {
+    color: #6a707c;
+  }
+}
+
+textarea {
+  outline: none;
+  padding: 20px 20px;
+  border-radius: 50px;
+  flex-grow: 1;
+  min-height: 1px;
+  font-size: 13px;
+  background-color: var(--shade-50);
+  box-sizing: border-box;
+  font-weight: 700;
+  &::placeholder {
+    color: #6a707c;
+    font-family: var(--font-family-system);
+  }
+}
+
+label {
+  margin-bottom: var(--spacing-normal);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-large);
+  font-family: var(--font-family-system);
+  box-sizing: border-box;
+  padding: 0;
+  color: var(--shade-05);
+}
+
+footer {
+  height: 100px;
+  background-color: var(--moon-dust) ;
+}
+
+.button {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 12px;
+  height: 36px;
+  border-radius: 10px;
+  outline: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  flex-grow: 0;
+  font-weight: 700;
+  font-size: 14px;
+  border-style: solid;
+  border-width: 1px;
+  border: none;
+  background-color: var(--blue-40);
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: var(--primary);
+  }
+}
+
+.flexbox {
+  display: flex;
+}
+
+.flex_around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex_centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex_column_centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_round {
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+  background-color: var(--blue-40);
+  transition: transform 1s, background-color 1s;
+  &:hover {
+    transform: scale(1.2);
+    background-color: var(--primary);
+  }
+}
+
+.button_image {
+  width: 28px;
+  height: 28px;
+}
+
+.card {
+  width: 96px;
+  height: 96px;
+  margin: 1rem;
+  transition: transform 1s;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.icon_need_love {
+  background: url('../assets/heart.svg') no-repeat center;
+}
+
+.icon_give_love {
+  background: url('../assets/giveHeart.png') no-repeat center;
+  background-size: cover;
+}
+
+.icon_piggy_bank {
+  background: url('../assets/piggy-bank.png') no-repeat center;
+  background-size: cover;
+}
+
+.wrap_subtext_input {
+  margin-top: var(--spacing-small);
+  margin-bottom: var(--spacing-medium);
+}
+
+.subtext_below_input {
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-small);
+  font-family: var(--font-family-system);
+  color: var(--shade-20);
+}
+
+.link_below_input {
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-large);
+  font-family: var(--font-family-system);
+  color: var(--primary);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.margin_button_wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}

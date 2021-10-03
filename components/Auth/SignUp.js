@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { supabase } from '../../services/supabaseClient'
 import Link from "next/link";
+import styles from './styles/SignUp.module.scss';
 
 export default function SignUp() {
   const [loading, setLoading] = useState(false)
@@ -29,15 +30,9 @@ export default function SignUp() {
   return (
     <form
       onSubmit={handleLogin}
+      className={`${styles.wrap}`}
     >
-      <div>
-        <label htmlFor="email">Email</label>
-        <Link href='/signIn'>
-          <a>
-            <div>Already joined? login to your account</div>
-          </a>
-        </Link>
-      </div>
+      <label htmlFor="email">Email</label>
       <input
         id="email"
         name="email"
@@ -48,13 +43,15 @@ export default function SignUp() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <div>
-        <label htmlFor="password">Password</label>
-      </div>
+      <Link href='/signIn'>
+        <a>
+          <div className="wrap_subtext_input"><span className="subtext_below_input">Already joined?</span><span className="link_below_input"> login to your account</span></div>
+        </a>
+      </Link>
+      <label htmlFor="password">Password</label>
       <input
         id="password"
         name="password"
-        className="inputField"
         type="password"
         placeholder="password"
         required
@@ -64,7 +61,7 @@ export default function SignUp() {
       <input
         id="password2"
         name="password2"
-        className="inputField"
+        className={styles.inputField}
         type="password"
         placeholder="repeat your password"
         required
@@ -73,10 +70,10 @@ export default function SignUp() {
       />
       <button
         type="submit"
-        className="button block"
+        className={`button ${styles.button_margin}`}
         disabled={loading}
       >
-        <span>{loading ? 'Loading' : 'Sign up'}</span>
+        <span className={styles.button_text}>{loading ? 'Loading' : 'Sign up'}</span>
       </button>
     </form>
   )

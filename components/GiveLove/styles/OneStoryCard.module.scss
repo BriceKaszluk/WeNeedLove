@@ -1,9 +1,8 @@
 .wrap {
-  width: 40%;
+  width: 100%;
   height: auto;
   cursor: pointer;
   box-shadow: 1px 1px 3px grey;
-  margin: auto;
   &:hover {
     opacity: 0.8;
   }
@@ -34,10 +33,10 @@
 .ripple {
   background-position: center;
   transition: background 0.8s;
-  background-color: #F5F5F5;
+  background-color: var(--shade-50);
 }
 .ripple:hover {
-  background: #F5F5F5 radial-gradient(circle, transparent 1%, #F5F5F5 1%) center/15000%;
+  background: var(--shade-50) radial-gradient(circle, transparent 1%, #F5F5F5 1%) center/15000%;
 }
 .ripple:active {
   background-color: #ababab;

@@ -1,16 +1,3 @@
-.card {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
-  text-align: center;
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  }
-  
-  .need_love {
-    background: url('../../../assets/heart.svg') no-repeat;
-  }
+.need_love {
+  background: url('../../../assets/heart.svg') no-repeat center;
+}

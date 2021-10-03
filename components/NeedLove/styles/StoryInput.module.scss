@@ -1,68 +1,42 @@
 .wrap {
-  height: 100vh;
-  width: 50%;
-  margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin: 150px auto;
+  width: 1000px;
+  box-shadow: 0 2px 40px 0 rgba(0,0,0,.06);
+  z-index: 1;
+  padding: 40px 78px;
+  border-radius: var(--radius-normal);
+  background-color: var(--white);
+  box-sizing: border-box;
+  font-size: var(--font-size-normal);
+  font-family: var(--font-family-system);
+  color: var(--shade-05);
 }
 
-.title_input_box {
-  width: 20%;
-  padding: 5px;
-  border-radius: 50px;
-  background-color: #bababa;
-  margin-bottom: 20px;
+.button_text {
+  color: var(--white);
+  font-family: var(--font-family-system);
 }
 
-.title_input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 50px;
-  border: none;
-  background-color: #F5F5F5;
-  &:focus {
-    outline: none;
-  }
-}
-
-.text_area_wrap {
-  width: 100%;
-  padding: 5px;
-  border-radius: 50px;
-  background-color: #bababa;
+.button_margin {
+  margin-top: var(--spacing-normal);
 }
 
 .text_area_box {
-  margin: auto;
+  margin-top: 20px;
   overflow: hidden;
   border-radius: 50px;
   padding-right: 17px;
+  border: 1px #d8dadf solid;
 }
 
 .text_area {
   box-sizing: content-box;
   width: 100%;
-  padding: 20px;
   overflow-y: scroll;
-  border-radius: 50px;
   border: none;
-  background-color: #F5F5F5;
   &:focus {
     outline: none;
-  }
-}
-
-.submit_button {
-  width: 15%;
-  margin: 20px auto;
-  padding: 10px;
-  border-radius: 20px;
-  border: none;
-  background-color: #bababa;
-
-  &:hover {
-    background-color: #ababab;
-    scale: 1.05;
   }
 }

@@ -17,23 +17,11 @@
   align-items: center;
 }
 
-
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
+.main_title {
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+  font-family: var(--font-family-title);
 }
 
 .title,
@@ -41,75 +29,25 @@
   text-align: center;
 }
 
-.description {
+.description_1 {
   line-height: 1.5;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  margin-top: 30px;
+  font-family: var(--font-family-system);
 }
 
 .description_2 {
   line-height: 1.5;
-  font-size: 1.4rem;
-  margin-top: 30px;
+  font-size: 1.2rem;
+  font-family: var(--font-family-system);
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
+.icons_grid {
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100%;
   margin-top: 3rem;
-}
-
-.card {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
-  text-align: center;
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  
-  &:hover {
-    transform: scale(1.1);
-  }
-}
-
-.need_love {
-  background: url('../../../assets/heart.svg') no-repeat;
-}
-
-.give_love {
-  background: url('../../../assets/giveHeart.png') no-repeat;
-  background-size: cover;
-}
-
-.my_love {
-  background: url('../../../assets/piggy-bank.png') no-repeat;
-  background-size: cover;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
 }
 
 @media (max-width: 600px) {
