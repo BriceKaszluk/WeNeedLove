@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { supabase } from '../../services/supabaseClient'
 import Link from "next/link";
 import styles from './styles/SignUp.module.scss';
+import toaster from '../../services/toaster';
 
 export default function SignUp() {
   const [loading, setLoading] = useState(false)
@@ -12,16 +13,21 @@ export default function SignUp() {
   const handleLogin = async (e) => {
     e.preventDefault();
     if(password !== password2) {
-      alert('password dosnt match');
+      toaster.error('Error', 'Passwords do not match');
       return
     }
     try {
       setLoading(true)
       const { user, session, error } = await supabase.auth.signUp({  email,  password })
-      if (error) throw error
-      alert('Check your email for the login link!')
+      if(user && session) {
+        toaster.success('Account created', 'thank you for joining us!');
+      }
+      if (error) {
+        toaster.error('Error', 'Creation failed');
+        throw error
+      } 
     } catch (error) {
-      alert(error.error_description || error.message)
+      console.log(error.error_description || error.message)
     } finally {
       setLoading(false)
     }

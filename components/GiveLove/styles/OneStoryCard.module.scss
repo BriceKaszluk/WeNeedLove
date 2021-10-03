@@ -28,18 +28,3 @@
 .text {
   text-align: justify;
 }
-
-/* Ripple effect */
-.ripple {
-  background-position: center;
-  transition: background 0.8s;
-  background-color: var(--shade-50);
-}
-.ripple:hover {
-  background: var(--shade-50) radial-gradient(circle, transparent 1%, #F5F5F5 1%) center/15000%;
-}
-.ripple:active {
-  background-color: #ababab;
-  background-size: 100%;
-  transition: background 0s;
-}

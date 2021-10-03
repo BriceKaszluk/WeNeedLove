@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import { supabase } from '../../services/supabaseClient'
+import React, { useState } from 'react';
+import { supabase } from '../../services/supabaseClient';
 import Link from "next/link";
 import styles from './styles/SignIn.module.scss';
+import toaster from '../../services/toaster';
 
 export default function SignIn() {
   const [loading, setLoading] = useState(false)
@@ -13,10 +14,15 @@ export default function SignIn() {
     try {
       setLoading(true)
       const { user, session, error } = await supabase.auth.signIn({  email,  password })
-      if (error) throw error
-      alert('Check your email for the login link!')
+      if(user && session) {
+        toaster.success('Successfully logged in', 'Share a story or reply to others!');
+      }
+      if (error) {
+        toaster.error('Error', 'Can\'t log to your account');
+        throw error
+      } 
     } catch (error) {
-      alert(error.error_description || error.message)
+      console.log(error.error_description || error.message)
     } finally {
       setLoading(false)
     }

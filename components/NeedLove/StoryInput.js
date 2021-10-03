@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './styles/StoryInput.module.scss';
 import { supabase } from '../../services/supabaseClient';
+import toaster from '../../services/toaster';
 
 export default function StoryInput() {
 
@@ -12,14 +13,17 @@ export default function StoryInput() {
     try {
       const user = supabase.auth.user();
       const { data, error } = await supabase.from('stories').insert([{ title: storyTitle, text: userStory, user_id: user.id }]);
-      if(error) throw error;
+      if(error) {
+        toaster.error('Error', 'Can\'t post your story');
+        throw error;
+      } 
       if(data) {
         setStoryTitle('');
         setUserStory('');
-        alert('congrats! your story is online!');
+        toaster.success('Successfully posted', 'Congrats! your story is online!');
       }
     } catch (error) {
-      alert(error.error_description || error.message)
+      console.log(error.error_description || error.message)
     }
   }
 
@@ -51,8 +55,6 @@ export default function StoryInput() {
             placeholder="Tell us about your story..." 
             cols="100" 
             rows="10" 
-            minLength="50" 
-            maxLength="500" 
             required
             value={userStory}
             onChange={(e) => {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './styles/AnswerComment.module.scss';
 import { supabase } from '../../services/supabaseClient';
+import toaster from '../../services/toaster';
 
 export default function AnswerComment({story}) {
 
@@ -13,14 +14,15 @@ export default function AnswerComment({story}) {
       const { data, error } = await supabase.from('comments').insert([{ text: userAnswer, user_id: user.id, story_id: story.id }]);
       if(data) {
         setUserAnswer('');
-        alert('congrats! your sended love!');
+        toaster.success('Successfully posted', 'Thank you for sending love');
       }
       if(error) {
+        toaster.error('Error', 'Can\'t send your love');
         throw error;
       }
     }
     catch (error) {
-      console.error(error);
+      console.log(error);
     }
   }
 
@@ -36,7 +38,6 @@ export default function AnswerComment({story}) {
         placeholder="You are not alone my friend..." 
         cols="100" 
         rows="10" 
-        maxLength="500" 
         required
         value={userAnswer}
         onChange={(e) => {

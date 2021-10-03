@@ -8,9 +8,9 @@ export default function OneStoryCard({story}) {
       <div 
         className={style.image}>
       </div>
-      <div className={`${style.ripple} ${style.infos_wrap}`}>
-        <h3 className={style.title} >{story.title}</h3>
-        <p className={style.text} >{story.text}</p>
+      <div className={`ripple ${style.infos_wrap}`}>
+        <h3 className="story_title" >{story.title}</h3>
+        <p className="story_text" >{story.text}</p>
       </div>
     </div>
   )

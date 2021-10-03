@@ -15,15 +15,17 @@ export default function Header({session}) {
     <div className={`flexbox flex_between ${styles.wrap}`}>
       {
         router.asPath !== '/' && 
-        <Link href='/'>
-        <a>
-          <div className={styles.logo}>WeNeedLove</div>
-        </a>
-      </Link>
+        <div className={styles.width}>
+          <Link href='/'>
+            <a>
+              <div className={styles.logo}>WeNeedLove</div>
+            </a>
+          </Link>
+        </div>
       }
       {
         router.asPath !== '/' && 
-        <div className={`flex_around ${styles.buttons_wrap}`}>
+        <div className={`flex_evenly ${styles.buttons_wrap} ${styles.width}`}>
           <div className='flex_centered button_round'>
             <Heart />
           </div>
@@ -52,9 +54,11 @@ export default function Header({session}) {
       }
       {
         session &&
-        <button className="button" onClick={() => supabase.auth.signOut()}>
-          <span className={styles.button_text}>Sign Out</span>
-        </button>
+        <div className={`${styles.width} ${router.asPath === '/' ? '' : `${styles.logout_wrap}`}`}>
+          <button className="button" onClick={() => supabase.auth.signOut()}>
+            <span className={styles.button_text}>Sign Out</span>
+          </button>
+        </div>
       }
     </div>
   )
