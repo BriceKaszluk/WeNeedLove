@@ -8,7 +8,7 @@ export default function OneRowStory({story}) {
   return (
   <div className={styles.comment_wrap}>
     <div 
-    className="flex_between"
+    className={`flexbox ${styles.form_comment}`}
     onClick={() => {setShowComments(!showComments)}}
     >
       <span className="story_comments_title">Comments</span>
@@ -18,8 +18,8 @@ export default function OneRowStory({story}) {
       {
         story.comments.map(com => {
           return (
-            <div key={com.id}>
-              <p>{com.text}</p>
+            <div key={com.id} className={styles.comment_border}>
+              <p className="justify_text">{com.text}</p>
             </div>
           )
         })

@@ -1,8 +1,6 @@
 .wrap {
   width: 100%;
   height: auto;
-  box-shadow: 1px 1px 2px grey;
-  border-radius: var(--radius-larger);
 }
 
 .image {
@@ -17,11 +15,8 @@
 .story_wrap {
   width: 100%;
   height: auto;
-  padding: 0 10px 0 10px;
-  border: 1px #b3b3b3 solid;
-  border-radius: var(--radius-larger);
+  padding: 0 30px 0 30px;
   word-break: break-all;
-  background-color: var(--green);
 }
 
 .text {

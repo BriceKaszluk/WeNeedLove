@@ -5,7 +5,6 @@
   width: 1000px;
   box-shadow: 0 2px 40px 0 rgba(0,0,0,.06);
   z-index: 1;
-  padding: 40px 78px;
   border-radius: var(--radius-larger);
   background-color: var(--white);
   box-sizing: border-box;
@@ -19,31 +18,27 @@
   font-family: var(--font-family-system);
 }
 
-.button_margin {
-  margin-top: var(--spacing-normal);
-}
-
 .text_area_box {
-  margin-top: 20px;
-  overflow: hidden;
-  border-radius: var(--radius-larger);
-  padding-right: 17px;
-  border: 1px #d8dadf solid;
-  box-shadow: 1px 1px 2px grey;
+  border-top: 2px var(--moon-dust) solid;
+  border-bottom: 2px var(--moon-dust) solid;
 }
 
 .text_area {
-  box-sizing: content-box;
   width: 100%;
-  overflow-y: scroll;
   border: none;
-  background-color: var(--yellow);
+  background-color: var(--white);
   &:focus {
     outline: none;
   }
 }
 
 .title_input {
-  background-color: var(--yellow);
-  box-shadow: 1px 1px 2px grey;
+  padding: 50px 30px 50px 30px;
+  width: 100%;
+  font-size: 30px;
+  background-color: var(--white);
+  border: none;
+  &::placeholder {
+    font-size: 30px;
+  }
 }

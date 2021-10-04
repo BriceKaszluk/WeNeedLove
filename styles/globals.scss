@@ -140,15 +140,14 @@ input {
 
 textarea {
   outline: none;
-  padding: 20px 20px;
-  border-radius: var(--radius-larger);
+  padding: 20px 30px;
   flex-grow: 1;
   min-height: 1px;
-  font-size: 13px;
-  background-color: var(--shade-50);
+  font-size: 17px;
   box-sizing: border-box;
   font-family: var(--font-family-system);
   font-weight: 700;
+  resize: none;
   &::placeholder {
     color: #6a707c;
   }
@@ -195,6 +194,7 @@ footer {
 
 .flexbox {
   display: flex;
+  align-items: center;
 }
 
 .flex_around {
@@ -302,7 +302,7 @@ footer {
 .margin_button_wrap {
   display: flex;
   justify-content: flex-end;
-  margin-top: 20px;
+  margin: 20px 20px 20px 20px;
 }
 
 /* Ripple effect */
@@ -330,7 +330,6 @@ footer {
 }
 
 .story_comments_title {
-  margin-bottom: var(--spacing-normal);
   font-weight: var(--font-weight-bold);
   font-size: 20px;
   font-family: var(--font-family-system);
@@ -345,11 +344,18 @@ footer {
   font-family: var(--font-family-system);
   color: var(--shade-00);
   box-sizing: border-box;
+  text-align: justify;
+}
+
+.justify_text {
+  text-align: justify;
 }
 
 .arrow_down {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
+  background-size: cover;
   background: url('../assets/down-arrow.svg');
 }
 

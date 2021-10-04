@@ -5,13 +5,19 @@
   width: 1000px;
   box-shadow: 0 2px 40px 0 rgba(0,0,0,.06);
   z-index: 1;
-  padding: 40px 78px;
   border-radius: var(--radius-larger);
   background-color: var(--white);
   box-sizing: border-box;
   font-size: var(--font-size-normal);
   font-family: var(--font-family-system);
   color: var(--shade-05);
+}
+
+.come_later {
+  margin: auto;
+  &h2 {
+    text-align: center;
+  }
 }
 
 

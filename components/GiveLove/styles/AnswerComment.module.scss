@@ -8,19 +8,13 @@
 .text_area_box {
   width: 100%;
   margin-top: 20px;
-  overflow: hidden;
-  border-radius: var(--radius-larger);
-  box-shadow: 1px 1px 2px grey;
-  padding-right: 17px;
-  border: 1px #d8dadf solid;
+  border-top: 2px var(--moon-dust) solid;
+  border-bottom: 2px var(--moon-dust) solid;
 }
 
 .text_area {
-  box-sizing: content-box;
   width: 100%;
-  overflow-y: scroll;
   border: none;
-  background-color: var(--yellow);
   &:focus {
     outline: none;
   }
@@ -46,7 +40,7 @@
 }
 
 .button_margin {
-  margin-top: var(--spacing-large);
+  margin: 20px 20px 20px 20px
 }
 
 .margin_button_wrap {

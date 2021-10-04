@@ -14,15 +14,12 @@ export default function SignIn() {
     try {
       setLoading(true)
       const { user, session, error } = await supabase.auth.signIn({  email,  password })
+      if (error) throw error
       if(user && session) {
         toaster.success('Successfully logged in', 'Share a story or reply to others!');
       }
-      if (error) {
-        toaster.error('Error', 'Can\'t log to your account');
-        throw error
-      } 
     } catch (error) {
-      console.log(error.error_description || error.message)
+      toaster.error('Error', error.error_description || error.message);
     } finally {
       setLoading(false)
     }

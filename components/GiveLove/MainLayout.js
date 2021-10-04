@@ -3,25 +3,52 @@ import OneStoryCard from './OneStoryCard';
 import AnswerComment from './AnswerComment';
 import style from './styles/MainLayout.module.scss';
 import { supabase } from '../../services/supabaseClient';
+import toaster from '../../services/toaster';
 
 export default function MainLayout() {
 
   const [story, setStory] = useState(null);
   const [loading, setLoading] = useState(true)
 
+  const [userAnswer, setUserAnswer] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const user = supabase.auth.user();
+      const { data, error } = await supabase.from('comments').insert([{ text: userAnswer, user_id: user.id, story_id: story.id }]);
+      if(data) {
+        setUserAnswer('');
+        toaster.success('Successfully posted', 'Thank you for sending love');
+        fetchRandomStory();
+      }
+      if(error) {
+        toaster.error('Error', 'Can\'t send your love');
+        throw error;
+      }
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
   const fetchRandomStory = async () => {
     try {
       const { data, error } = await supabase.rpc('randomstory');
-      if(error) throw error;
-      if(data) {
+      if(error) {
+        throw error;
+      }
+      if(data && data.id !== null) {
         setStory(data)
-        setLoading(false)
         console.log(data);
+      } else {
+        setStory(null);
       }
     } catch(error) {
-      alert(error.error_description || error.message)
+      toaster.error('Error', error.error_description || error.message);
+    } finally {
+      setLoading(false)
     }
-    console.log(story);
   }
 
   useEffect(() => {
@@ -31,9 +58,23 @@ export default function MainLayout() {
   return (
     <div className={style.wrap}>
       {
-        story && <OneStoryCard story={story} />
+        (!loading && story) && 
+        <>
+          <OneStoryCard story={story} />
+          <AnswerComment 
+            story={story} 
+            userAnswer={userAnswer} 
+            setUserAnswer={setUserAnswer} 
+            handleSubmit={handleSubmit} 
+          />
+        </>
       }
-      <AnswerComment story={story} />
+      {
+        (!story && !loading) && 
+        <div className={style.come_later}>
+          <h2>Sorry, you sent too much love... Come back later!</h2>
+        </div>
+      }
     </div>
   )
 }

@@ -1,30 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './styles/AnswerComment.module.scss';
-import { supabase } from '../../services/supabaseClient';
-import toaster from '../../services/toaster';
 
-export default function AnswerComment({story}) {
-
-  const [userAnswer, setUserAnswer] = useState('');
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const user = supabase.auth.user();
-      const { data, error } = await supabase.from('comments').insert([{ text: userAnswer, user_id: user.id, story_id: story.id }]);
-      if(data) {
-        setUserAnswer('');
-        toaster.success('Successfully posted', 'Thank you for sending love');
-      }
-      if(error) {
-        toaster.error('Error', 'Can\'t send your love');
-        throw error;
-      }
-    }
-    catch (error) {
-      console.log(error);
-    }
-  }
+export default function AnswerComment({story, userAnswer, setUserAnswer, handleSubmit}) {
 
   return (
     <form 
@@ -33,9 +10,10 @@ export default function AnswerComment({story}) {
     >
       <div className={styles.text_area_box}>
         <textarea 
+        autoFocus
         className={styles.text_area} 
         name="myInput" 
-        placeholder="You are not alone my friend..." 
+        placeholder="Support this person, send him good vibes" 
         cols="100" 
         rows="10" 
         required

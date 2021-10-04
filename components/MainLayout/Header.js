@@ -12,7 +12,7 @@ export default function Header({session}) {
   const router = useRouter();
   
   return(
-    <div className={`flexbox flex_between ${styles.wrap}`}>
+    <div className={`flex_between ${styles.wrap}`}>
       {
         router.asPath !== '/' && 
         <div className={styles.width}>

@@ -34,6 +34,7 @@ export default function StoryInput() {
     >
       <div>
         <input 
+          autoFocus
           type="text" 
           name="story_title" 
           className={styles.title_input}
@@ -67,7 +68,7 @@ export default function StoryInput() {
       </div>
       <div className="margin_button_wrap">
         <button 
-        className={`button ${styles.button_margin}`}
+        className={`button`}
         type="submit" 
         name="submitUserStory"
         >
