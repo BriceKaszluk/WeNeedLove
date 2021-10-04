@@ -12,7 +12,7 @@ export default function OneRowStory({story}) {
     onClick={() => {setShowComments(!showComments)}}
     >
       <span className="story_comments_title">Comments</span>
-      <div className="arrow_down"></div>
+      <div className={`arrow_down ${showComments && styles.flip_horizontal_bottom}`}></div>
     </div>
     <div  className={showComments ? "show_accordion" : "hide_accordion"}>
       {

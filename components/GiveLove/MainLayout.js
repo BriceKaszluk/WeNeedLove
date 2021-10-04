@@ -56,26 +56,26 @@ export default function MainLayout() {
   },[])
 
   return (
-    <div className={style.wrap}>
-      {
-        (!loading && story) && 
-        <>
-          <OneStoryCard story={story} />
-          <AnswerComment 
-            story={story} 
-            userAnswer={userAnswer} 
-            setUserAnswer={setUserAnswer} 
-            handleSubmit={handleSubmit} 
-          />
-        </>
-      }
-      {
-        (!story && !loading) && 
-        <div className={style.come_later}>
-          <h2>Sorry, you sent too much love... Come back later!</h2>
-        </div>
-      }
-    </div>
+      <div className={style.wrap}>
+        {
+          (!loading && story) && 
+          <>
+            <OneStoryCard story={story} />
+            <AnswerComment 
+              story={story} 
+              userAnswer={userAnswer} 
+              setUserAnswer={setUserAnswer} 
+              handleSubmit={handleSubmit} 
+            />
+          </>
+        }
+        {
+          (!story && !loading) && 
+          <div className={style.come_later}>
+            <h2>Sorry, you sent too much love... Come back later!</h2>
+          </div>
+        }
+      </div>
   )
 }
 
