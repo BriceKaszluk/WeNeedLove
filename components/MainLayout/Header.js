@@ -26,13 +26,13 @@ export default function Header({session}) {
       {
         (router.asPath !== '/' && router.asPath !== '/signIn' && router.asPath !== '/signUp') && 
         <div className={`flex_evenly ${styles.buttons_wrap} ${styles.width}`}>
-          <div className='flex_centered button_round'>
+          <div className={`flex_centered button_round ${router.asPath == '/need-love' ? 'active_button' : ''}`}>
             <Heart />
           </div>
-          <div className='flex_centered button_round'>
+          <div className={`flex_centered button_round ${router.asPath == '/give-love' ? 'active_button' : ''}`}>
             <GiveHeart />
           </div>
-          <div className='flex_centered button_round'>
+          <div className={`flex_centered button_round ${router.asPath == '/piggy-bank' ? 'active_button' : ''}`}>
             <PiggyBank />
           </div>
         </div>

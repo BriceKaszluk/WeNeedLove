@@ -5,10 +5,10 @@ export default function OneStoryCard({story}) {
 
   return (
     <div className={style.wrap}>
-      <div 
+      {/* <div 
         className={style.image}>
-      </div>
-      <div className={`ripple ${style.infos_wrap}`}>
+      </div> */}
+      <div className={`${style.story_wrap}`}>
         <h3 className="story_title" >{story.title}</h3>
         <p className="story_text" >{story.text}</p>
       </div>

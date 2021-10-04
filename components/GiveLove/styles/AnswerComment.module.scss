@@ -9,7 +9,8 @@
   width: 100%;
   margin-top: 20px;
   overflow: hidden;
-  border-radius: 50px;
+  border-radius: var(--radius-larger);
+  box-shadow: 1px 1px 2px grey;
   padding-right: 17px;
   border: 1px #d8dadf solid;
 }
@@ -19,6 +20,7 @@
   width: 100%;
   overflow-y: scroll;
   border: none;
+  background-color: var(--yellow);
   &:focus {
     outline: none;
   }

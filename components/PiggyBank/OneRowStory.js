@@ -2,8 +2,11 @@ import React, { useState, useEffect} from 'react';
 import styles from './styles/OneRowStory.module.scss';
 import truncate from '../../services/truncateString';
 import Link from "next/link";
+import Comments from './Comments';
 
 export default function OneRowStory({stories}) {
+
+  const [showComments, setShowComments] = useState(false);
 
   return (
     <div>
@@ -18,31 +21,21 @@ export default function OneRowStory({stories}) {
           </Link>
         </div>
       }
-      {
-        stories && stories.map(story => {
-          return (
-            <div key={story.id} className={`${styles.row_wrap}`}>
-              <div className={styles.story_wrap}>
-                <h2 className="story_title">{story.title}</h2>
-                <p className="story_text">{truncate(story.text, 150)}...</p>
+      <div className={styles.row_grid}>
+        {
+          stories && stories.map(story => {
+            return (
+              <div key={story.id} className={`${styles.row_wrap}`}>
+                <div className={styles.story_wrap}>
+                  <h2 className="story_title">{truncate(story.title, 10)}</h2>
+                  <p className="story_text">{truncate(story.text, 150)}...</p>
+                </div>
+                <Comments story={story}/>
               </div>
-              <div className={styles.border_bottom}></div>
-              <div className={styles.comment_wrap}>
-                <h3 className="story_comments_title">Comments</h3>
-                {
-                  story.comments.map(com => {
-                    return (
-                      <div key={com.id}>
-                        <p >{com.text}</p>
-                      </div>
-                    )
-                  })
-                }
-              </div>
-            </div>
-          )
-        })
-      }
+            )
+          })
+        }
+      </div>
     </div>
   )
 }

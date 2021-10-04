@@ -6,7 +6,7 @@
   box-shadow: 0 2px 40px 0 rgba(0,0,0,.06);
   z-index: 1;
   padding: 40px 78px;
-  border-radius: var(--radius-normal);
+  border-radius: var(--radius-larger);
   background-color: var(--white);
   box-sizing: border-box;
   font-size: var(--font-size-normal);
@@ -26,9 +26,10 @@
 .text_area_box {
   margin-top: 20px;
   overflow: hidden;
-  border-radius: 50px;
+  border-radius: var(--radius-larger);
   padding-right: 17px;
   border: 1px #d8dadf solid;
+  box-shadow: 1px 1px 2px grey;
 }
 
 .text_area {
@@ -36,7 +37,13 @@
   width: 100%;
   overflow-y: scroll;
   border: none;
+  background-color: var(--yellow);
   &:focus {
     outline: none;
   }
+}
+
+.title_input {
+  background-color: var(--yellow);
+  box-shadow: 1px 1px 2px grey;
 }

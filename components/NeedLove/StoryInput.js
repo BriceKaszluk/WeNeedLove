@@ -36,6 +36,7 @@ export default function StoryInput() {
         <input 
           type="text" 
           name="story_title" 
+          className={styles.title_input}
           placeholder="My story title" 
           size="30" 
           spellCheck 
