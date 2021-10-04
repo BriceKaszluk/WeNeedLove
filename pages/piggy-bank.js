@@ -10,7 +10,8 @@ function PiggyBank() {
   useEffect(() => {
     const fetchStoriesAnsComments = async () => {
       try {
-        const {data, error} = await supabase.from('stories').select('id, title, text, comments(id, text)')
+        const user = supabase.auth.user();
+        const {data, error} = await supabase.from('stories').select('id, title, text, comments(id, text)').filter('user_id', 'eq', user.id);
         if(error) throw error;
         if(data) {
           setStories(data)
