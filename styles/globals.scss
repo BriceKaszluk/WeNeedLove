@@ -140,10 +140,10 @@ textarea {
   font-size: 13px;
   background-color: var(--shade-50);
   box-sizing: border-box;
+  font-family: var(--font-family-system);
   font-weight: 700;
   &::placeholder {
     color: #6a707c;
-    font-family: var(--font-family-system);
   }
 }
 
@@ -222,8 +222,8 @@ footer {
 }
 
 .button_round {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   border-radius: 50px;
   background-color: var(--blue-40);
   transition: transform 1s, background-color 1s;
@@ -234,8 +234,8 @@ footer {
 }
 
 .button_image {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
 }
 
 .card {

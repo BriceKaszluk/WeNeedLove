@@ -11,7 +11,7 @@ export default function MainLayout() {
 
   const fetchRandomStory = async () => {
     try {
-      const { data, error } = await supabase.from('stories').select('id, title, text').limit(1).single()
+      const { data, error } = await supabase.rpc('randomstory');
       if(error) throw error;
       if(data) {
         setStory(data)
@@ -21,6 +21,7 @@ export default function MainLayout() {
     } catch(error) {
       alert(error.error_description || error.message)
     }
+    console.log(story);
   }
 
   useEffect(() => {

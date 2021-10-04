@@ -24,7 +24,7 @@ export default function Header({session}) {
         </div>
       }
       {
-        router.asPath !== '/' && 
+        (router.asPath !== '/' && router.asPath !== '/signIn' && router.asPath !== '/signUp') && 
         <div className={`flex_evenly ${styles.buttons_wrap} ${styles.width}`}>
           <div className='flex_centered button_round'>
             <Heart />
