@@ -1,8 +1,8 @@
 .wrap {
   display: flex;
   flex-direction: column;
-  margin: 150px auto;
-  width: 1000px;
+  margin: auto;
+  max-width: 1000px;
   box-shadow: 0 2px 40px 0 rgba(0,0,0,.06);
   z-index: 1;
   border-radius: var(--radius-larger);

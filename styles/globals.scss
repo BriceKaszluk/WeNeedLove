@@ -163,11 +163,6 @@ label {
   color: var(--shade-05);
 }
 
-footer {
-  height: 100px;
-  background-color: var(--moon-dust) ;
-}
-
 .button {
   width: fit-content;
   display: flex;
@@ -327,6 +322,11 @@ footer {
   font-family: var(--font-family-system);
   box-sizing: border-box;
   color: var(--shade-05);
+  word-break: normal;
+  @media (max-width: 768px) {
+   text-align: justify; 
+   font-size: 20px;
+  }
 }
 
 .story_comments_title {

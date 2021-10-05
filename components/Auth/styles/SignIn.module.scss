@@ -1,17 +1,20 @@
 .wrap {
   display: flex;
   flex-direction: column;
-  margin: 150px auto;
-  width: 500px;
+  margin: auto;
+  max-width: 800px;
   box-shadow: 0 2px 40px 0 rgba(0,0,0,.06);
   z-index: 1;
-  padding: 40px 78px;
+  padding: 50px 78px;
   border-radius: var(--radius-normal);
   background-color: var(--white);
   box-sizing: border-box;
   font-size: var(--font-size-normal);
   font-family: var(--font-family-system);
   color: var(--shade-05);
+  @media (max-width: 768px) {
+    padding: 40px 40px;
+  }
 }
 
 .button_text {

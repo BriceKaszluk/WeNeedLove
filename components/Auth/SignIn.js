@@ -26,54 +26,56 @@ export default function SignIn() {
   }
 
   return (
-    <form
-      className={`${styles.wrap}`}
-      onSubmit={handleLogin}
-    >
-      <label htmlFor="email">Email</label>
-      <div>
-        <input
-          id="email"
-          name="email"
-          className="inputField"
-          type="email"
-          placeholder="john@doe.com"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <Link href='/signUp'>
-        <a>
-          <div className="wrap_subtext_input"><span className="subtext_below_input">need an account?</span><span className="link_below_input"> Sign up</span></div>
-        </a>
-      </Link>
-      <label htmlFor="password">Password</label>
-      <div>
-        <input
-          id="password"
-          name="password"
-          className="inputField"
-          type="password"
-          placeholder="password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <Link href='/reset-password'>
-        <a>
-          <div className="wrap_subtext_input"><span className="subtext_below_input">Forgot your password?</span><span className="link_below_input"> Send new</span></div>
-        </a>
-      </Link>
-      <button
-        type="submit"
-        className={`button ${styles.button_margin}`}
-        disabled={loading}
+    <div className="flex_centered">
+      <form
+        className={`${styles.wrap}`}
+        onSubmit={handleLogin}
       >
-        <span className={styles.button_text}>{loading ? 'Loading' : 'Sign in'}</span>
-      </button>
-    </form>
+        <label htmlFor="email">Email</label>
+        <div>
+          <input
+            id="email"
+            name="email"
+            className="inputField"
+            type="email"
+            placeholder="john@doe.com"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <Link href='/signUp'>
+          <a>
+            <div className="wrap_subtext_input"><span className="subtext_below_input">need an account?</span><span className="link_below_input"> Sign up</span></div>
+          </a>
+        </Link>
+        <label htmlFor="password">Password</label>
+        <div>
+          <input
+            id="password"
+            name="password"
+            className="inputField"
+            type="password"
+            placeholder="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <Link href='/reset-password'>
+          <a>
+            <div className="wrap_subtext_input"><span className="subtext_below_input">Forgot your password?</span><span className="link_below_input"> Send new</span></div>
+          </a>
+        </Link>
+        <button
+          type="submit"
+          className={`button ${styles.button_margin}`}
+          disabled={loading}
+        >
+          <span className={styles.button_text}>{loading ? 'Loading' : 'Sign in'}</span>
+        </button>
+      </form>
+    </div>
   )
 }
 
