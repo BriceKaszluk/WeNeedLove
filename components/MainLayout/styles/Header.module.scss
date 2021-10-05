@@ -1,20 +1,29 @@
 .wrap {
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-top: 20px;
+  padding: 20px 20px 0 20px;
   margin-bottom: 150px;
   @media (max-width: 768px) {
     margin-bottom: 40px;
+    padding: 10px 20px 0 0;
   }
 }
 
 .logo {
   font-size: 2rem;
   font-family: var(--font-family-title);
+  @media (max-width: 768px) {
+    font-size: 1.7rem;
+  }
 }
 
 .buttons_wrap {
-  width: 180px;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 75%;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .auth_wrap {
@@ -34,6 +43,9 @@
   & div {
     color: var( --white);
   }
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 }
 
 .button_text {
@@ -48,4 +60,31 @@
 .logout_wrap {
   display: flex;
   justify-content: flex-end;
+}
+
+.button_burger {
+  position: fixed;
+  top: 15px;
+  right: 25px;
+  width: 40px;
+  height: 40px;
+}
+
+.burger_wrap {
+  width: 100%;
+  @media (max-width: 768px) {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    right: 15px;
+  }
+}
+
+.mobile_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 200px;
 }

@@ -366,3 +366,19 @@ label {
 .hide_accordion {
   display: none;
 }
+
+.hide_on_large_screen {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+   }
+}
+
+.hide_on_small_screen {
+  display: content;
+  @media (max-width: 768px) {
+    display: none;
+   }
+}
+
+

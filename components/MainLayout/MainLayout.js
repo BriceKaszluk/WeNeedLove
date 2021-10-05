@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import Header from './Header';
 import styles from './styles/MainLayout.module.scss';
 import { ToastContainer } from 'react-nextjs-toast';
