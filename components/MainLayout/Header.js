@@ -47,7 +47,7 @@ export default function Header({session}) {
       </div>
       {
         (session) &&
-        <div className={`${styles.width} ${router.asPath === '/' ? '' : `${styles.logout_wrap}`}`}>
+        <div className={`${styles.width} ${styles.logout_wrap}`}>
           <button className="button hide_on_small_screen" onClick={() => supabase.auth.signOut()}>
             <span className={styles.button_text}>Sign Out</span>
           </button>
