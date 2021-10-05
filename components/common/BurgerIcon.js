@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from './styles/BurgerIcon.module.scss';
 
 function BurgerIcon({showNavbar, setShowNavbar}) {
 
-  const [isActive, setActive] = useState(false);
+  const ref = useRef();
 
-  const toggleClass = () => {
-    setActive(!isActive);
-  };
+  useEffect(() => {
+    const outsideClick = (event) => {
+      if(ref && !ref.current.contains(event.target)) {
+        setShowNavbar(false);
+      }
+    }
+    document.addEventListener('mouseup', outsideClick)
+    return (() => {
+      document.removeEventListener('mouseup', outsideClick)
+    })
+  },[])
 
   return(
   <div 
-  className={isActive ? `${styles.open} ${styles.nav_icon3}` : `${styles.nav_icon3}`} 
+  ref={ref}
+  className={showNavbar ? `${styles.open} ${styles.nav_icon3}` : `${styles.nav_icon3}`} 
   onClick={() => {
-    toggleClass()
     setShowNavbar(!showNavbar)
   }} 
   >
