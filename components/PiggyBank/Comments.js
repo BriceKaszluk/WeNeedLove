@@ -5,6 +5,7 @@ import EmotionsRail from '../common/EmotionsRail';
 export default function OneRowStory({story}) {
 
   const [showComments, setShowComments] = useState(false);
+  console.log(story, 'la sotory');
 
   return (
   <div className={styles.comment_wrap}>
@@ -20,7 +21,7 @@ export default function OneRowStory({story}) {
         story.comments.map(com => {
           return (
             <div key={com.id} className="flexbox">
-              <EmotionsRail />
+              <EmotionsRail emotion={com.comments_emotions[0]?.emotion_id} comment={com}/>
               <div>
                 <p className={`justify_text ${styles.comment_border}`}>{com.text}</p>
               </div>

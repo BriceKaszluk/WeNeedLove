@@ -11,7 +11,7 @@ function PiggyBank() {
     const fetchStoriesAnsComments = async () => {
       try {
         const user = supabase.auth.user();
-        const {data, error} = await supabase.from('stories').select('id, title, text, comments(id, text)').filter('user_id', 'eq', user.id);
+        const {data, error} = await supabase.from('stories').select('id, title, text, comments(id, text, comments_emotions(emotion_id))').filter('user_id', 'eq', user.id);
         if(error) throw error;
         if(data) {
           setStories(data)

@@ -2,7 +2,9 @@
   width: 40px;
   height: 40px;
   padding: 10px;
+  font-size: 20px;
   display: inline-flex;
+  text-align: center;
   margin-right: var(--spacing-normal);
   border-radius: var(--radius-normal);
   outline: 0;
@@ -47,6 +49,10 @@
   &:active {
     background-color: var(--shade-45);
     scale: 0.95;
+  }
+  &[test="true"] {
+    background-color: var(--shade-45);
+    pointer-events: none;
   }
 }
 

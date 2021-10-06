@@ -2,7 +2,6 @@ import React from 'react';
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from './styles/Home.module.scss';
-import EmotionRail from '../common/EmotionsRail';
 
 export default function Home() {
   return (
@@ -17,8 +16,6 @@ export default function Home() {
         <h1 className={styles.main_title}>
           WeNeedLove
         </h1>
-
-        <EmotionRail />
 
         <span className={styles.description_1}>
           you are a good person never forget it
