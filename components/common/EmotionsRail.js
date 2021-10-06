@@ -1,26 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from './styles/EmotionsRail.module.scss';
 
-function EmotionRail() {
+function EmotionRailOld() {
+
+  const [showContent, setShowContent] = useState(false);
+
   return (
     <div className="flexbox flexbox-align-center">
       <button
-        className={styles.display_emotions}
-      >
-        <div
-          aria-label="emoji"
-          className="flexbox flexbox-align-center radius-normal center-text reaction-button__emoji transition"
-          // style="width: 24px; height: 24px;"
-        >
-          <span 
-          // style="line-height: 1.2em; display: inline-block; font-size: 18px; text-align: center; word-break: keep-all; width: 24px;"
-          >
-            👍
-          </span>
-        </div>
-      </button>
-      <button
         className={styles.icons_selector_button}
+        onClick={() => {setShowContent(!showContent)}}
         // style="width: 34px; height: 34px;"
       >
         <svg
@@ -41,8 +30,96 @@ function EmotionRail() {
           </g>
         </svg>
       </button>
+      {
+        showContent && 
+        <div className={styles.relative}>
+          <EmotionRail />
+        </div>
+      }
     </div>
   );
 }
 
-export default EmotionRail;
+function EmotionRail() {
+  return (
+    <div className={styles.absolute}>
+      <button
+        className={styles.display_emotions}
+      >
+        <div
+          aria-label="emoji"
+          className="flexbox flexbox-align-center radius-normal center-text reaction-button__emoji transition"
+          // style="width: 24px; height: 24px;"
+        >
+          <span 
+          // style="line-height: 1.2em; display: inline-block; font-size: 18px; text-align: center; word-break: keep-all; width: 24px;"
+          >
+            🎉
+          </span>
+        </div>
+      </button>
+      <button
+        className={styles.display_emotions}
+      >
+        <div
+          aria-label="emoji"
+          className="flexbox flexbox-align-center radius-normal center-text reaction-button__emoji transition"
+          // style="width: 24px; height: 24px;"
+        >
+          <span 
+          // style="line-height: 1.2em; display: inline-block; font-size: 18px; text-align: center; word-break: keep-all; width: 24px;"
+          >
+            👏
+          </span>
+        </div>
+      </button>
+      <button
+        className={styles.display_emotions}
+      >
+        <div
+          aria-label="emoji"
+          className="flexbox flexbox-align-center radius-normal center-text reaction-button__emoji transition"
+          // style="width: 24px; height: 24px;"
+        >
+          <span 
+          // style="line-height: 1.2em; display: inline-block; font-size: 18px; text-align: center; word-break: keep-all; width: 24px;"
+          >
+            😍
+          </span>
+        </div>
+      </button>
+      <button
+        className={styles.display_emotions}
+      >
+        <div
+          aria-label="emoji"
+          className="flexbox flexbox-align-center radius-normal center-text reaction-button__emoji transition"
+          // style="width: 24px; height: 24px;"
+        >
+          <span 
+          // style="line-height: 1.2em; display: inline-block; font-size: 18px; text-align: center; word-break: keep-all; width: 24px;"
+          >
+            🤔
+          </span>
+        </div>
+      </button>
+      <button
+        className={styles.display_emotions}
+      >
+        <div
+          aria-label="emoji"
+          className="flexbox flexbox-align-center radius-normal center-text reaction-button__emoji transition"
+          // style="width: 24px; height: 24px;"
+        >
+          <span 
+          // style="line-height: 1.2em; display: inline-block; font-size: 18px; text-align: center; word-break: keep-all; width: 24px;"
+          >
+            👍
+          </span>
+        </div>
+      </button>
+    </div>
+  )
+}
+
+export default EmotionRailOld;

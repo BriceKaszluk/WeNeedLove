@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import styles from './styles/Comments.module.scss';
+import EmotionsRail from '../common/EmotionsRail';
 
 export default function OneRowStory({story}) {
 
@@ -18,8 +19,11 @@ export default function OneRowStory({story}) {
       {
         story.comments.map(com => {
           return (
-            <div key={com.id} className={styles.comment_border}>
-              <p className="justify_text">{com.text}</p>
+            <div key={com.id} className="flexbox">
+              <EmotionsRail />
+              <div>
+                <p className={`justify_text ${styles.comment_border}`}>{com.text}</p>
+              </div>
             </div>
           )
         })

@@ -3,7 +3,7 @@
   height: 40px;
   padding: 10px;
   display: inline-flex;
-  margin-right: var(--spacing-small);
+  margin-right: var(--spacing-normal);
   border-radius: var(--radius-normal);
   outline: 0;
   cursor: pointer;
@@ -48,4 +48,18 @@
     background-color: var(--shade-45);
     scale: 0.95;
   }
+}
+
+.absolute {
+  display: flex;
+  position: absolute;
+  background-color: var(--white);
+  top: -24px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 var(--shade-20);
+}
+
+.relative {
+  position: relative;
 }
