@@ -3,8 +3,8 @@ import styles from './styles/TotalCommentsDone.module.scss';
 
 export default function TotalCommentsDone({totalCommentsDone}) {
   return (
-    <div className={`flex_column_centered ${styles.wrap}`}>
-      <h2>Comments sent</h2>
+    <div className={styles.wrap}>
+      <h3>Comments sent</h3>
       <span className={styles.number}>{totalCommentsDone}</span>
     </div>
   )

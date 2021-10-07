@@ -1,9 +1,10 @@
 .wrap {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   width: fit-content;
-  height: fit-content;
-  padding: 0 30px 15px 30px;
+  height: 130px;
+  padding: 15px 30px 15px 30px;
   box-shadow: 0 2px 40px 0 rgba(0,0,0,.06);
   margin-top: var(--spacing-larger);
   border-radius: var(--radius-larger);
@@ -24,11 +25,10 @@
   justify-content: center;
   padding: 10px;
   width: 40px;
-  height: 40px;
+  height: 55px;
   background: var(--entity-highlight-background);
   margin-right: var(--spacing-smaller);
   border-radius: var(--radius-normal);
-  cursor: pointer;
   border: none;
   color: var(--shade-20);
   transition: all .13s ease-in-out;
@@ -39,10 +39,6 @@
   &:hover {
     color: var(--shade-10);
     background-color: var(--shade-50);
-  }
-  &:active {
-    background-color: var(--shade-45);
-    scale: 0.95;
   }
 }
 

@@ -187,6 +187,35 @@ label {
   }
 }
 
+h1 {
+
+  font-size: 32px;
+  text-align: center;
+  padding: 0 30px 15px 30px;
+  box-shadow: 0 2px 40px 0 rgba(0,0,0,.06);
+  border-radius: var(--radius-larger);
+  font-family: var(--font-family-system);
+  color: var(--shade-05);
+  background-color: var(--white);
+}
+
+h2 {
+  margin: 50px 0 0 0;
+  font-size: 24px;
+  padding: 15px 30px 15px 30px;
+  box-shadow: 0 2px 40px 0 rgba(0,0,0,.06);
+  border-radius: var(--radius-larger);
+  font-family: var(--font-family-system);
+  color: var(--shade-05);
+  background-color: var(--white);
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: var(--font-weight-semibold);
+}
+
 .flexbox {
   display: flex;
   align-items: center;

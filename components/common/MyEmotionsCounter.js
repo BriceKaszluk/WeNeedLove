@@ -14,7 +14,7 @@ export default function MyEmotionsCounter({countedEmotions}) {
   return (
     <div>
       <div className={styles.wrap}>
-      <h2>feedback on your comments</h2>
+      <h3>feedback on your comments</h3>
         <div className="flex_centered">
           {
             Object.keys(LOGO).map((logoName, index) => {
