@@ -30,7 +30,7 @@ export default function SignIn() {
         className={`${styles.wrap}`}
         onSubmit={handleLogin}
       >
-        <h3>Sign in</h3>
+        <h3 className="margin_bottom_medium">Sign in</h3>
         <label htmlFor="email">Email</label>
           <input
             id="email"

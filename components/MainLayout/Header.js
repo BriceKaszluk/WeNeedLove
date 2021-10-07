@@ -17,7 +17,7 @@ export default function Header({session}) {
   return(
     <div className={`flex_between ${styles.wrap}`}>
       <div className={styles.width}>
-        <Link href='/'>
+        <Link href={session ? '/piggy-bank' : '/'}>
           <a>
             <div className={styles.logo}>WeNeedLove</div>
           </a>
@@ -61,7 +61,7 @@ export default function Header({session}) {
         </div>
       }
       {
-        (!session && router.asPath !== '/signIn' && router.asPath !== '/signUp' && router.asPath !== '/') && 
+        (!session && router.asPath !== '/signIn' && router.asPath !== '/signUp') && 
         <div className={router.asPath === '/' ? `${styles.home_auth}` : `flex_around ${styles.auth_wrap}`}>
           <Link href='/signIn'>
             <a>
@@ -80,3 +80,5 @@ export default function Header({session}) {
 }
 
 //TODO: changer les !isNavigator après le dev
+//TODO: changer le weneedlove mobile mettre ne gros titre - signin/signout
+//TODO: transition smooth burger mobile

@@ -19,16 +19,16 @@
 }
 
 .your_story_title_wrap {
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0 0 0;
+  padding: 15px 30px 15px 30px;
+  background-color: var(--white);
+  box-shadow: 0 2px 40px 0 rgba(0,0,0,.06);
+  border-radius: var(--radius-larger);
 }
 
 .button_give {
-  position: absolute;
-  left: 870px;
-  bottom: 15px;
   color: var(--white);
-  @media (max-width: 768px) {
-    left: 250px;
-   }
 }
 

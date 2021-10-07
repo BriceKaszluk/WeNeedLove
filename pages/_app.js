@@ -7,34 +7,46 @@ import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }) {
 
   const [session, setSession] = useState(null);
-  const [appStarted, setAppStarted] = useState(true);
+  const [appStarted, setAppStarted] = useState(false);
+  const [userLoaded, setUserLoaded] = useState(false);
 
   const notRedirectingUrl = ['/', '/signIn', '/signUp'];
   const router = useRouter();
 
   useEffect(() => {
-    if(router?.asPath && !notRedirectingUrl.includes(router.asPath) && !session && !appStarted) {
-      router.push('/signIn');
+    if(userLoaded && router?.asPath) {
+      if(!notRedirectingUrl.includes(router.asPath) && !session && !appStarted) {
+        router.push('/signIn');
+      }
+      setAppStarted(true);
     }
-  },[router?.asPath, session, appStarted])
+  },[router?.asPath, session, appStarted, userLoaded])
 
   useEffect(() => {
     setSession(supabase.auth.session())
-    setAppStarted(false);
+    setUserLoaded(true);
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
       if(_event === 'SIGNED_IN') {
         router.push('/piggy-bank' || '/');
       }
+      if(_event === 'SIGNED_OUT') {
+        router.push('/');
+      }
     })
   }, [])
 
   return(
-    <MainLayout session={session}>
-      {
-        (router?.asPath && !notRedirectingUrl.includes(router.asPath) && !session) ? 'loading' : <Component {...pageProps} />
-      }
-    </MainLayout>
+    <>
+    {
+      (router?.asPath && !notRedirectingUrl.includes(router.asPath) && !session) ? 'loading' :  
+      <MainLayout 
+        session={session}
+      >
+        <Component {...pageProps} />
+      </MainLayout>
+    }
+    </>
   ) 
 }
 
