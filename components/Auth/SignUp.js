@@ -37,6 +37,7 @@ export default function SignUp() {
       onSubmit={handleLogin}
       className={`${styles.wrap}`}
     >
+      <h3>Create an account</h3>
       <label htmlFor="email">Email</label>
       <input
         id="email"

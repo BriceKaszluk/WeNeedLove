@@ -13,7 +13,7 @@ export default function AnswerComment({story, userAnswer, setUserAnswer, handleS
         autoFocus
         className={styles.text_area} 
         name="myInput" 
-        placeholder="Support this person, send him good vibes" 
+        placeholder="support this person by sending him a message" 
         cols="100" 
         rows="10" 
         required

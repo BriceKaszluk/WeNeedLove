@@ -26,13 +26,12 @@ export default function SignIn() {
   }
 
   return (
-    <div className="flex_centered">
       <form
         className={`${styles.wrap}`}
         onSubmit={handleLogin}
       >
+        <h3>Sign in</h3>
         <label htmlFor="email">Email</label>
-        <div>
           <input
             id="email"
             name="email"
@@ -43,14 +42,12 @@ export default function SignIn() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-        </div>
         <Link href='/signUp'>
           <a>
-            <div className="wrap_subtext_input"><span className="subtext_below_input">need an account?</span><span className="link_below_input"> Sign up</span></div>
+            <div className="wrap_subtext_input"><span className="subtext_below_input">New here?</span><span className="link_below_input"> Create an account</span></div>
           </a>
         </Link>
         <label htmlFor="password">Password</label>
-        <div>
           <input
             id="password"
             name="password"
@@ -61,7 +58,6 @@ export default function SignIn() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
         <Link href='/reset-password'>
           <a>
             <div className="wrap_subtext_input"><span className="subtext_below_input">Forgot your password?</span><span className="link_below_input"> Send new</span></div>
@@ -75,7 +71,6 @@ export default function SignIn() {
           <span className={styles.button_text}>{loading ? 'Loading' : 'Sign in'}</span>
         </button>
       </form>
-    </div>
   )
 }
 

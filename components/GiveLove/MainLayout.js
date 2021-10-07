@@ -54,7 +54,9 @@ export default function MainLayout() {
   },[])
 
   return (
-      <div className={style.wrap}>
+    <div className={style.wrap}>      
+      <h1>Give Love</h1>
+      <div className={style.input_wrap}>
         {
           (!loading && story) && 
           <>
@@ -74,6 +76,8 @@ export default function MainLayout() {
           </div>
         }
       </div>
+    </div>
+
   )
 }
 
