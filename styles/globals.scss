@@ -400,7 +400,7 @@ h3 {
 .hide_on_large_screen {
   display: none;
   @media (max-width: 768px) {
-    display: block;
+    display: flex;
    }
 }
 

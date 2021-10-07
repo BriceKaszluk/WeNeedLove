@@ -23,32 +23,35 @@ export default function Header({session}) {
           </a>
         </Link>
       </div>
-      <div className={styles.burger_wrap}>
-        <div 
-        className={`hide_on_large_screen ${styles.button_burger}`}
-        ><BurgerIcon showNavbar={showNavbar} setShowNavbar={setShowNavbar}/></div>
+
         {
           (router.asPath !== '/' && router.asPath !== '/signIn' && router.asPath !== '/signUp') && 
-          <div className={`${showNavbar ? `${styles.mobile_wrap}` : styles.buttons_wrap}`}>
-            <div className={`flex_centered button_round ${router.asPath == '/need-love' ? 'active_button' : ''}`}>
-              <Heart />
+          <div className={styles.burger_wrap}>
+            <div className={`hide_on_large_screen ${styles.button_burger}`}
+            >
+              <BurgerIcon showNavbar={showNavbar} setShowNavbar={setShowNavbar}/>
             </div>
-            <div className={`flex_centered button_round ${router.asPath == '/give-love' ? 'active_button' : ''}`}>
-              <GiveHeart />
-            </div>
-            <div className={`flex_centered button_round ${router.asPath == '/piggy-bank' ? 'active_button' : ''}`}>
-              <PiggyBank />
-            </div>
-            {
-              (session) &&
-              <div className="flex_centered button_round">
-                <button className={`hide_on_large_screen button button_image ${styles.logout_button}`} onClick={() => supabase.auth.signOut()}>
-                </button>
+            <div className={`${showNavbar ? `${styles.mobile_wrap}` : styles.buttons_wrap}`}>
+              <div className={`flex_centered button_round ${router.asPath == '/need-love' ? 'active_button' : ''}`}>
+                <Heart />
               </div>
-            }
+              <div className={`flex_centered button_round ${router.asPath == '/give-love' ? 'active_button' : ''}`}>
+                <GiveHeart />
+              </div>
+              <div className={`flex_centered button_round ${router.asPath == '/piggy-bank' ? 'active_button' : ''}`}>
+                <PiggyBank />
+              </div>
+              {
+                (session) &&
+                <div className="flex_centered button_round hide_on_large_screen">
+                  <button className={`button_image ${styles.logout_button}`} onClick={() => supabase.auth.signOut()}>
+                  </button>
+                </div>
+              }
+            </div>
           </div>
         }
-      </div>
+
       {
         (session) &&
         <div className={`${styles.width} ${styles.logout_wrap}`}>

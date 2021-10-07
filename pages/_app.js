@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     if(router?.asPath && !notRedirectingUrl.includes(router.asPath) && !session && !appStarted) {
-      router.push('/signUp');
+      router.push('/signIn');
     }
   },[router?.asPath, session, appStarted])
 
