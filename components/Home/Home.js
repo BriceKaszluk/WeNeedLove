@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-
+        <h1 className={styles.logo}>WeNeedLove</h1>
         <span className={styles.main_title}>
           Share your story, send support to community
         </span>
@@ -40,7 +40,7 @@ export default function Home() {
             <h4>share stories</h4>
             <p className={styles.card_text}>tell your story anonymously, the community will support you without prejudice</p>
           </div>
-          <div className={styles.card_wrap}>
+          <div className={styles.card_wrap_middle}>
             <Image
               src={img_give}
               alt="Picture of heart"

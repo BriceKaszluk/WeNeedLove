@@ -16,7 +16,7 @@ export default function Header({session}) {
 
   return(
     <div className={`flex_between ${styles.wrap}`}>
-      <div className={styles.width}>
+      <div className={`hide_on_small_screen ${styles.width}`}>
         <Link href={session ? '/piggy-bank' : '/'}>
           <a>
             <div className={styles.logo}>WeNeedLove</div>
