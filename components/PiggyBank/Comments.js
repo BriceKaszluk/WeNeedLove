@@ -5,7 +5,6 @@ import EmotionsRail from '../common/EmotionsRail';
 export default function OneRowStory({story}) {
 
   const [showComments, setShowComments] = useState(false);
-  console.log(story, 'la sotory');
 
   return (
   <div className={styles.comment_wrap}>

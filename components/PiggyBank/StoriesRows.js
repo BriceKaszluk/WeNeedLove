@@ -4,7 +4,7 @@ import truncate from '../../services/truncateString';
 import Link from "next/link";
 import Comments from './Comments';
 
-export default function OneRowStory({stories}) {
+export default function StoriesRows({stories}) {
 
   const [showComments, setShowComments] = useState(false);
 

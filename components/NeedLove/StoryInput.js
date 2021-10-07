@@ -14,7 +14,6 @@ export default function StoryInput() {
       const user = supabase.auth.user();
       const { data, error } = await supabase.from('stories').insert([{ title: storyTitle, text: userStory, user_id: user.id }]);
       if(error) {
-        toaster.error('Error', 'Can\'t post your story');
         throw error;
       } 
       if(data) {
@@ -23,7 +22,7 @@ export default function StoryInput() {
         toaster.success('Successfully posted', 'Congrats! your story is online!');
       }
     } catch (error) {
-      console.log(error.error_description || error.message)
+      toaster.error('Error', error.error_description || error.message);
     }
   }
 

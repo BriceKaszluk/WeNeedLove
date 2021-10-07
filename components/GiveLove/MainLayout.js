@@ -23,12 +23,11 @@ export default function MainLayout() {
         fetchRandomStory();
       }
       if(error) {
-        toaster.error('Error', 'Can\'t send your love');
         throw error;
       }
     }
     catch (error) {
-      console.log(error);
+      toaster.error('Error', error.error_description || error.message);
     }
   }
 
@@ -40,7 +39,6 @@ export default function MainLayout() {
       }
       if(data && data.id !== null) {
         setStory(data)
-        console.log(data);
       } else {
         setStory(null);
       }
@@ -80,3 +78,4 @@ export default function MainLayout() {
 }
 
 //TODO: rajouter dans le select pour savoir si un user n'a pas déjà comenté un histoire
+//TODO: prévoir un bouton pour changer de story

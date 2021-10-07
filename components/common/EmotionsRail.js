@@ -4,10 +4,10 @@ import { supabase } from '../../services/supabaseClient';
 import toaster from '../../services/toaster';
 
 const LOGO = {
-  thumbUp: '👍',
   clap: '👏',
   love: '😍',
   tada: '🎉',
+  thumbUp: '👍',
   unhappy: '🤔'
 };
 
@@ -28,7 +28,6 @@ function EmotionRailOld({emotion, comment}) {
     try {
       const {data, error} = await supabase.from('comments_emotions').upsert({ 'user_id': user.id, 'comment_id': comment.id , 'emotion_id': emotion });
       setCurrentEmotion(emotion)
-      console.log(data, user, error);
       if (error) throw error
     } 
     catch (error) {

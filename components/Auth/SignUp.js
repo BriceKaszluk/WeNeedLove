@@ -23,11 +23,10 @@ export default function SignUp() {
         toaster.success('Account created', 'thank you for joining us!');
       }
       if (error) {
-        toaster.error('Error', 'Creation failed');
         throw error
       } 
     } catch (error) {
-      console.log(error.error_description || error.message)
+      toaster.error('Error', error.error_description || error.message);
     } finally {
       setLoading(false)
     }
