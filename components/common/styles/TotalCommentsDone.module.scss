@@ -1,7 +1,7 @@
 .wrap {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   width: fit-content;
   height: 130px;
@@ -19,4 +19,9 @@
   font-size: x-large;
   font-weight: bolder;
   color: var(--black);
+}
+
+.button_give {
+  margin-top: 10px;
+  color: var(--white);
 }

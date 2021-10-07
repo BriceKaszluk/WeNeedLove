@@ -1,7 +1,12 @@
 import React from 'react';
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from './styles/Home.module.scss';
+import img_need from '../../assets/heart.svg';
+import img_give from '../../assets/giveHeart.png';
+import img_piggy from '../../assets/piggy-bank.png';
+import img_wave from '../../assets/wave_home.svg';
 
 export default function Home() {
   return (
@@ -13,30 +18,49 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.main_title}>
-          WeNeedLove
-        </h1>
 
-        <span className={styles.description_1}>
-          you are a good person never forget it
+        <span className={styles.main_title}>
+          Share your story, send support to community
         </span>
-        
-        <span className={styles.description_2}>
-          Love is Everywhere
-        </span>
+        <span className={styles.main_title_anonymous}>Anonymously</span>
 
-        <div className={styles.icons_grid}>
-          <Link href="/need-love">
-            <a className={`card icon_need_love`} title='Need love'></a>
-          </Link>
-
-          <Link href="/give-love">
-            <a className={`card icon_give_love`} title='give love'></a>
+        <div className={`button ${styles.main_button}`}>
+          <Link href="/piggy-bank">
+            <a className={styles.join_button_text}>Join 5,000 members community now</a>
           </Link>
         </div>
-        <Link href="/piggy-bank">
-          <a className={`card icon_piggy_bank`} title='piggy-bank'></a>
-        </Link>
+        <div className={styles.icons_grid}>
+          <div className={styles.card_wrap}>
+            <Image
+              src={img_need}
+              alt="Picture of heart"
+              width={96}
+              height={96}
+            />
+            <h4>share stories</h4>
+            <p className={styles.card_text}>tell your story anonymously, the community will support you without prejudice</p>
+          </div>
+          <div className={styles.card_wrap}>
+            <Image
+              src={img_give}
+              alt="Picture of heart"
+              width={96}
+              height={96}
+            />  
+            <h4>support the community</h4>
+            <p className={styles.card_text}>support other members in their life adventure by sending them a message</p>        
+          </div>
+          <div className={styles.card_wrap}>
+            <Image
+              src={img_piggy}
+              alt="Picture of heart"
+              width={96}
+              height={96}
+            />
+            <h4>be supported</h4>
+            <p className={styles.card_text}>view community comments on your stories and like those who have helped you</p>   
+          </div>
+        </div>
       </main>
     </div>
   )

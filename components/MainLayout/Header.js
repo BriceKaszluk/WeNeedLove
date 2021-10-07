@@ -16,16 +16,13 @@ export default function Header({session}) {
 
   return(
     <div className={`flex_between ${styles.wrap}`}>
-      {
-        router.asPath !== '/' && 
-        <div className={styles.width}>
-          <Link href='/'>
-            <a>
-              <div className={styles.logo}>WeNeedLove</div>
-            </a>
-          </Link>
-        </div>
-      }
+      <div className={styles.width}>
+        <Link href='/'>
+          <a>
+            <div className={styles.logo}>WeNeedLove</div>
+          </a>
+        </Link>
+      </div>
       <div className={styles.burger_wrap}>
         <div 
         className={`hide_on_large_screen ${styles.button_burger}`}
@@ -42,6 +39,13 @@ export default function Header({session}) {
             <div className={`flex_centered button_round ${router.asPath == '/piggy-bank' ? 'active_button' : ''}`}>
               <PiggyBank />
             </div>
+            {
+              (session) &&
+              <div className="flex_centered button_round">
+                <button className={`hide_on_large_screen button button_image ${styles.logout_button}`} onClick={() => supabase.auth.signOut()}>
+                </button>
+              </div>
+            }
           </div>
         }
       </div>
@@ -54,7 +58,7 @@ export default function Header({session}) {
         </div>
       }
       {
-        (!session && router.asPath !== '/signIn' && router.asPath !== '/signUp') && 
+        (!session && router.asPath !== '/signIn' && router.asPath !== '/signUp' && router.asPath !== '/') && 
         <div className={router.asPath === '/' ? `${styles.home_auth}` : `flex_around ${styles.auth_wrap}`}>
           <Link href='/signIn'>
             <a>

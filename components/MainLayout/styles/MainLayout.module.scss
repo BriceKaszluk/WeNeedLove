@@ -1,5 +1,6 @@
 .wrap {
-  background-color: var(--moon-dust) ;
+  background: var(--moon-dust);
+  background-size: cover;
   font-family: var(--font-family-system);
   min-height: 100vh;
   box-sizing: border-box;

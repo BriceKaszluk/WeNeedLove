@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }) {
 
   const [session, setSession] = useState(null);
-  const [redirectTo, setRedirectTo] = useState('');
   const [appStarted, setAppStarted] = useState(true);
 
   const notRedirectingUrl = ['/', '/signIn', '/signUp'];
@@ -15,8 +14,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     if(router?.asPath && !notRedirectingUrl.includes(router.asPath) && !session && !appStarted) {
-      setRedirectTo(router.asPath);
-      router.push('/signIn');
+      router.push('/signUp');
     }
   },[router?.asPath, session, appStarted])
 
@@ -26,10 +24,10 @@ function MyApp({ Component, pageProps }) {
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
       if(_event === 'SIGNED_IN') {
-        router.push(redirectTo || '/');
+        router.push('/piggy-bank' || '/');
       }
     })
-  }, [redirectTo])
+  }, [])
 
   return(
     <MainLayout session={session}>
