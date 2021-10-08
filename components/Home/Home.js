@@ -6,7 +6,6 @@ import styles from './styles/Home.module.scss';
 import img_need from '../../assets/heart.svg';
 import img_give from '../../assets/giveHeart.png';
 import img_piggy from '../../assets/piggy-bank.png';
-import img_wave from '../../assets/wave_home.svg';
 
 export default function Home() {
   return (
@@ -25,7 +24,7 @@ export default function Home() {
         <span className={styles.main_title_anonymous}>Anonymously</span>
 
         <div className={`button ${styles.main_button}`}>
-          <Link href="/piggy-bank">
+          <Link href="/signIn">
             <a className={styles.join_button_text}>Join 5,000 members community now</a>
           </Link>
         </div>

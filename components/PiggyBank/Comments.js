@@ -32,3 +32,5 @@ export default function OneRowStory({story}) {
   </div>
   )
 }
+
+//TODO: mettre une croix pour supprimer un commentaire + "êtes vous sur de vouloir supprimer ce com?" + toaster confirm
