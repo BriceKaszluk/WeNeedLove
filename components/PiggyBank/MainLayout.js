@@ -10,6 +10,7 @@ export default function MainLayout({stories, countedEmotions, totalCommentsDone}
   return (
     <div className={styles.wrap}>
       <h1>Piggy Bank</h1>
+      <p className="page_description_text">View <strong>community comments</strong> on your stories and like those who have <strong>helped you</strong>😍. Other features are in progress, <strong>stay tuned</strong>!😊</p>
       <div className={styles.counters_wrap}>
         <TotalCommentsDone totalCommentsDone={totalCommentsDone}  />
         <MyEmotionsCounter countedEmotions={countedEmotions} />

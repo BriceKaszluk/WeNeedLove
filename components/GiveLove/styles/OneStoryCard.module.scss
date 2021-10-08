@@ -1,6 +1,9 @@
 .wrap {
   width: 100%;
   height: auto;
+  display: flex;
+  align-items: center;
+  padding-right: 30px;
 }
 
 .image {
@@ -20,4 +23,27 @@
 
 .text {
   text-align: justify;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  transform: rotate(270deg);
+
+}
+
+.arrow_wrap {
+  padding: 15px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50px;
+  background-color: var(--shade-50);
+  transition: transform 0.5s, background-color 0.5s;
+  &:hover {
+    transform: scale(1.1);
+    background-color: var(--shade-40);
+  }
+  &:active {
+    background-color: var(--shade-20);
+  }
 }

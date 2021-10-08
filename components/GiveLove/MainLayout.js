@@ -39,6 +39,7 @@ export default function MainLayout() {
       }
       if(data && data.id !== null) {
         setStory(data)
+        console.log('done')
       } else {
         setStory(null);
       }
@@ -56,11 +57,12 @@ export default function MainLayout() {
   return (
     <div className={style.wrap}>      
       <h1>Give Love</h1>
+      <p className="page_description_text">Support other members in their life adventure by <strong>sending them a message</strong>💪, prepare it well you can <strong>only send one</strong>! so no unnecessary debate👍, that&apos;s cool!</p>
       <div className={style.input_wrap}>
         {
           (!loading && story) && 
           <>
-            <OneStoryCard story={story} />
+            <OneStoryCard story={story} fetchRandomStory={fetchRandomStory} />
             <AnswerComment 
               story={story} 
               userAnswer={userAnswer} 

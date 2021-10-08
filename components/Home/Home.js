@@ -64,3 +64,5 @@ export default function Home() {
     </div>
   )
 }
+
+//TODO: mettre les phrases des carte de la vitrine sur les pages concernées

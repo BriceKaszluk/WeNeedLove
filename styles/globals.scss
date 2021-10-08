@@ -189,7 +189,7 @@ label {
 
 h1 {
   margin-top: 0;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
   font-size: 52px;
   text-align: center;
   padding: 0 30px 15px 30px;
@@ -209,6 +209,13 @@ h3 {
   margin-bottom: 0;
   font-size: 20px;
   font-weight: var(--font-weight-semibold);
+}
+
+.page_description_text {
+  text-align: center;
+  font-size: var(--font-size-larger);
+  margin-bottom: 70px;
+  padding: 0 30px;
 }
 
 .flexbox {
