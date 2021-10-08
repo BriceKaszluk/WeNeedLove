@@ -24,7 +24,7 @@ export default function Home() {
         <span className={styles.main_title_anonymous}>Anonymously</span>
 
         <div className={`button ${styles.main_button}`}>
-          <Link href="/signIn">
+          <Link href="/signUp">
             <a className={styles.join_button_text}>Join 5,000 members community now</a>
           </Link>
         </div>
