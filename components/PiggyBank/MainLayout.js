@@ -16,7 +16,7 @@ export default function MainLayout({stories, countedEmotions, totalCommentsDone}
       </div>
       <div className={styles.your_story_title_wrap}>
         <h2>Your Stories</h2>
-        <Link href="/give-love">
+        <Link href="/need-love">
           <a className={`button ${styles.button_give}`}>Write story</a>
         </Link>
       </div>
