@@ -1,7 +1,7 @@
 .comment_wrap {
   min-height: 40px;
   margin-top: 10px;
-  padding: 15px 30px 15px 10px;
+  padding: 15px 0 15px 10px;
   border-top: 2px var(--moon-dust) solid;
 }
 
@@ -40,4 +40,29 @@
             transform: rotateX(-180deg);
   }
 }
+
+.one_comment_wrap {
+  position: relative;
+  padding-right: 30px;
+  &:hover {
+    .button_delete_comment {
+      display: flex;
+    }
+  }
+}
+
+.button_delete_comment {
+  position: absolute;
+  right: 3px;
+  background-color: var(--shade-45);
+  border-radius: 50px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: var(--shade-40);
+  }
+}
+
 

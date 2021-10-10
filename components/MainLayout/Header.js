@@ -82,3 +82,4 @@ export default function Header({session}) {
 //TODO: changer les !isNavigator après le dev
 //TODO: changer le weneedlove mobile mettre ne gros titre - signin/signout
 //TODO: transition smooth burger mobile
+//TODO: fixer le header

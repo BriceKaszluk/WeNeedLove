@@ -1,5 +1,6 @@
-import React from 'react';
-import StoriesRows from './StoriesRows';
+import React, { useState } from 'react';
+import OneStory from './OneStory';
+import Comments from './Comments';
 import MyEmotionsCounter from '../common/MyEmotionsCounter';
 import TotalCommentsDone from '../common/TotalCommentsDone';
 import Link from "next/link";
@@ -22,9 +23,30 @@ export default function MainLayout({stories, countedEmotions, totalCommentsDone}
         </Link>
       </div>
       {
-        stories && 
-        <StoriesRows stories={stories} />
+        stories && stories.length == 0 && 
+        <div className='flex_column_centered'>
+          <span className={styles.main_text}>you have no story to consult at the moment</span>
+          <Link href='/need-love'>
+            <a className={`button ${styles.link_wrap}`}>
+              <span className={styles.link_to_needLove}>create one now!</span>
+            </a>
+          </Link>
+        </div>
       }
+      <div className={styles.row_grid}>
+        {
+          stories && stories.map(story => {
+            return (
+              <div key={story.id} className={`${styles.row_wrap}`}>
+                <div className={styles.story_wrap}>
+                <OneStory story={story} />
+                </div>
+                <Comments comments={story.comments}/>
+              </div>
+            )
+          })
+        }
+      </div>
     </div>
   )
 }

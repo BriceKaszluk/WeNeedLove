@@ -32,3 +32,29 @@
   color: var(--white);
 }
 
+.row_grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.row_wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  box-shadow: 0 2px 40px 0 rgba(0,0,0,.06);
+  margin-top: var(--spacing-larger);
+  border-radius: var(--radius-larger);
+  box-sizing: border-box;
+  font-size: var(--font-size-normal);
+  font-family: var(--font-family-system);
+  color: var(--shade-05);
+  background-color: var(--white);
+}
+
+.story_wrap {
+  padding: 15px 30px 15px 30px;
+}
