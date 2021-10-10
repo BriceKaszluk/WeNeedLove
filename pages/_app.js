@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }) {
             height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
           }}
         />
-        <Component {...pageProps} />
+        <Component {...pageProps} session={session} />
       </MainLayout>
     }
     </>

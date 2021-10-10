@@ -56,7 +56,7 @@ export default function MainLayout() {
 
   return (
     <div className={style.wrap}>      
-      <h1>Give Love</h1>
+      <h1>Give Support</h1>
       <p className="page_description_text">Support other members in their life adventure by <strong>sending them a message</strong>💪, prepare it well you can <strong>only send one</strong>! so no unnecessary debate👍, that&apos;s cool!</p>
       <div className={style.input_wrap}>
         {
