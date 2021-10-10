@@ -58,3 +58,29 @@
 .story_wrap {
   padding: 15px 30px 15px 30px;
 }
+
+.main_text {
+  margin-top: var(--spacing-medium);
+  margin-bottom: var(--spacing-normal);
+  font-weight: var(--font-weight-bold);
+  font-size: 26px;
+  font-family: var(--font-family-system);
+  box-sizing: border-box;
+  color: var(--shade-05);
+}
+
+
+.link_to_needLove {
+  font-size: 18px;
+  font-family: var(--font-family-system);
+  box-sizing: border-box;
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+  color: var(--white);
+  outline: none;
+  font-weight: 700;
+}
+
+.link_wrap {
+  margin-top: var(--spacing-medium);
+}
