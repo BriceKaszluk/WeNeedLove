@@ -4,12 +4,17 @@ import MainLayout from '../components/MainLayout/MainLayout';
 import { supabase } from '../services/supabaseClient';
 import { useRouter } from "next/router";
 import Script from 'next/script';
+import { analytics } from '../services/firebaseClient';
 
 function MyApp({ Component, pageProps }) {
 
   const [session, setSession] = useState(null);
   const [appStarted, setAppStarted] = useState(false);
   const [userLoaded, setUserLoaded] = useState(false);
+
+  useEffect(() => {
+    analytics()
+  },[])
 
   const notRedirectingUrl = ['/', '/signIn', '/signUp'];
   const router = useRouter();
