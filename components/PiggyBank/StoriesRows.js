@@ -4,7 +4,7 @@ import truncate from '../../services/truncateString';
 import Link from "next/link";
 import Comments from './Comments';
 
-export default function StoriesRows({stories}) {
+export default function StoriesRows({stories, lastTimeSeen}) {
 
   const [showComments, setShowComments] = useState(false);
 
@@ -30,7 +30,7 @@ export default function StoriesRows({stories}) {
                   <h2 className="story_title">{truncate(story.title, 10)}</h2>
                   <p className="story_text">{truncate(story.text, 150)}...</p>
                 </div>
-                <Comments story={story}/>
+                <Comments story={story} lastTimeSeen={lastTimeSeen}/>
               </div>
             )
           })

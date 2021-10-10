@@ -20,6 +20,27 @@
 	        animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
 
+.new_pill {
+  color: var(--white);
+  padding: 4px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 9px;
+  border-style: solid;
+  border-width: 1px;
+  border: none;
+  background-color: var(--blue-40);
+}
+
+.small_margin_left {
+  margin-left: var(--spacing-smaller)
+}
+
+.small_margin_right {
+  margin-right: var(--spacing-smaller)
+}
+
+
  @-webkit-keyframes flip-horizontal-bottom {
   0% {
     -webkit-transform: rotateX(0);

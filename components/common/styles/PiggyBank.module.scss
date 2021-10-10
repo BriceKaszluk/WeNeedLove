@@ -2,3 +2,21 @@
   background: url('../../../assets/piggy-bank.png') no-repeat center;
   background-size: cover;
 }
+
+.counter_notif {
+  position: absolute;
+  display: flex;
+  top: -32px;
+  right: -16px;
+  background-color: var(--red);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter_notif_holder {
+  position: relative;
+}

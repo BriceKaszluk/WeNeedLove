@@ -5,7 +5,7 @@ import TotalCommentsDone from '../common/TotalCommentsDone';
 import Link from "next/link";
 import styles from './styles/MainLayout.module.scss';
 
-export default function MainLayout({stories, countedEmotions, totalCommentsDone}) {
+export default function MainLayout({stories, countedEmotions, totalCommentsDone, lastTimeSeen}) {
 
   return (
     <div className={styles.wrap}>
@@ -23,7 +23,7 @@ export default function MainLayout({stories, countedEmotions, totalCommentsDone}
       </div>
       {
         stories && 
-        <StoriesRows stories={stories} />
+        <StoriesRows stories={stories} lastTimeSeen={lastTimeSeen} />
       }
     </div>
   )
