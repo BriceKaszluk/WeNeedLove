@@ -65,4 +65,24 @@
   }
 }
 
+.new_pill {
+  color: var(--white);
+  padding: 4px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 9px;
+  border-style: solid;
+  border-width: 1px;
+  border: none;
+  background-color: var(--blue-40);
+}
+
+.small_margin_left {
+  margin-left: var(--spacing-smaller)
+}
+
+.small_margin_right {
+  margin-right: var(--spacing-smaller)
+}
+
 

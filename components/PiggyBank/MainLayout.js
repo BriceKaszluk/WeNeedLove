@@ -6,7 +6,7 @@ import TotalCommentsDone from '../common/TotalCommentsDone';
 import Link from "next/link";
 import styles from './styles/MainLayout.module.scss';
 
-export default function MainLayout({stories, countedEmotions, totalCommentsDone}) {
+export default function MainLayout({stories, countedEmotions, totalCommentsDone, lastTimeSeen}) {
 
   return (
     <div className={styles.wrap}>
@@ -41,7 +41,7 @@ export default function MainLayout({stories, countedEmotions, totalCommentsDone}
                 <div className={styles.story_wrap}>
                 <OneStory story={story} />
                 </div>
-                <Comments comments={story.comments}/>
+                <Comments comments={story.comments} lastTimeSeen={lastTimeSeen}/>
               </div>
             )
           })

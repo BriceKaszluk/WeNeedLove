@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './styles/Comments.module.scss';
 import EmotionsRail from '../common/EmotionsRail';
 import imgTrash from '../../assets/trash.svg';
@@ -6,10 +6,20 @@ import Image from 'next/image';
 import toaster from '../../services/toaster';
 import { supabase } from '../../services/supabaseClient';
 
-export default function OneRowStory({comments}) {
+export default function OneRowStory({comments, lastTimeSeen}) {
 
   const [showComments, setShowComments] = useState(false);
   const [loading, setLoading] = useState(true)
+
+  const [hasNewComments, setHasNewComments] = useState(false);
+  useEffect(() => {
+    if (lastTimeSeen && comments && comments.length > 0) {
+      const newComments = comments.find(el => new Date(el.created_at) > lastTimeSeen);
+      if (newComments) {
+        setHasNewComments(newComments);
+      }
+    }
+  }, [lastTimeSeen, comments])
 
   const deleteComment = async (commentId) => {
     try{
@@ -35,7 +45,12 @@ export default function OneRowStory({comments}) {
     className={`flexbox ${styles.form_comment}`}
     onClick={() => {setShowComments(!showComments)}}
     >
-      <span className="story_comments_title">Comments</span>
+      <span className="story_comments_title">
+        Comments
+      </span>
+      {
+        hasNewComments && <span className={`${styles.new_pill} ${styles.small_margin_left}`}>New</span>
+      }
       <div className={`arrow_down ${showComments && styles.flip_horizontal_bottom}`}></div>
     </div>
     <div  className={showComments ? "display" : "not_display"}>
@@ -45,7 +60,10 @@ export default function OneRowStory({comments}) {
             <div key={com.id} id={com.id} className={`flexbox ${styles.one_comment_wrap}`}>
               <EmotionsRail emotion={com.comments_emotions[0]?.emotion_id} comment={com}/>
               <div>
-                <p className={`justify_text ${styles.comment_border}`}>{com.text}</p>
+                <p className={`justify_text ${styles.comment_border}`}>
+                  {new Date(com.created_at) > lastTimeSeen && <span className={`${styles.new_pill} ${styles.small_margin_right}`}>New</span>}
+                  {com.text}
+                </p>
               </div>
               <div 
                 onClick={() => {

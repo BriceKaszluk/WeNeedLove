@@ -7,12 +7,30 @@ import GiveHeart from '../common/GiveHeart';
 import PiggyBank from '../common/PiggyBank';
 import styles from './styles/Header.module.scss';
 import BurgerIcon from '../common/BurgerIcon';
+import toaster from '../../services/toaster';
 
 export default function Header({session}) {
 
   const router = useRouter();
 
+  const [counterNotif, setCounterNotif] = useState(0);
   const [showNavbar, setShowNavbar] = useState(false);
+
+  useEffect(() => {
+    if (session) {
+      async function fetchCounterNotif () {
+        try {
+          const { data, error } = await supabase.rpc('count_notifications');
+          if (error) throw error;
+          setCounterNotif(data)
+        } catch(error) {
+          toaster.error('Error', error.error_description || error.message);
+        }
+      }
+
+      fetchCounterNotif();
+    }
+  }, [session, router?.asPath])
 
   return(
     <div className={`flex_between ${styles.wrap}`}>
@@ -39,7 +57,7 @@ export default function Header({session}) {
                 <GiveHeart />
               </div>
               <div className={`flex_centered button_round ${router.asPath == '/piggy-bank' ? 'active_button' : ''}`}>
-                <PiggyBank />
+                <PiggyBank counterNotif={counterNotif} />
               </div>
               {
                 (session) &&
