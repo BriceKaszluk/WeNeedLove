@@ -58,11 +58,11 @@ export default function SignIn() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        {/* <Link href='/reset-password'>
+        <Link href="/reset-password">
           <a>
             <div className="wrap_subtext_input"><span className="subtext_below_input">Forgot your password?</span><span className="link_below_input"> Send new</span></div>
           </a>
-        </Link> */}
+        </Link>
         <button
           type="submit"
           className={`button ${styles.button_margin}`}

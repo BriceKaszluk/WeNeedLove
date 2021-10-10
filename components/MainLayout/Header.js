@@ -9,6 +9,8 @@ import styles from './styles/Header.module.scss';
 import BurgerIcon from '../common/BurgerIcon';
 import toaster from '../../services/toaster';
 
+const NOT_REDIRECTING_URLS = ['/', '/signIn', '/signUp', '/reset-password'];
+
 export default function Header({session}) {
 
   const router = useRouter();
@@ -43,7 +45,7 @@ export default function Header({session}) {
       </div>
 
         {
-          (router.asPath !== '/' && router.asPath !== '/signIn' && router.asPath !== '/signUp') && 
+          (!NOT_REDIRECTING_URLS.includes(router.asPath)) && 
           <div className={styles.burger_wrap}>
             <div className={`hide_on_large_screen ${styles.button_burger}`}
             >
@@ -79,7 +81,7 @@ export default function Header({session}) {
         </div>
       }
       {
-        (!session && router.asPath !== '/signIn' && router.asPath !== '/signUp') && 
+        (!session && router.asPath !== '/signIn' && router.asPath !== '/signUp' && router.asPath !== '/reset-password') && 
         <div className={router.asPath === '/' ? `${styles.home_auth}` : `flex_around ${styles.auth_wrap}`}>
           <Link href='/signIn'>
             <a>

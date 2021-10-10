@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
     analytics()
   },[])
 
-  const notRedirectingUrl = ['/', '/signIn', '/signUp'];
+  const notRedirectingUrl = ['/', '/signIn', '/signUp', '/reset-password'];
   const router = useRouter();
 
   useEffect(() => {
