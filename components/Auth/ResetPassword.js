@@ -4,6 +4,7 @@ import styles from './styles/SignIn.module.scss';
 import toaster from '../../services/toaster';
 
 export default function ResetPassword() {
+
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
 
@@ -11,6 +12,7 @@ export default function ResetPassword() {
     e.preventDefault();
     try {
       setLoading(true)
+      console.log(`${window.location.protocol}//${window.location.host}/update-password`)
       const { data, error } = await supabase.auth.api.resetPasswordForEmail(email, {redirectTo: `${window.location.protocol}//${window.location.host}/update-password`})
       if (error) throw error
       if(data) {
