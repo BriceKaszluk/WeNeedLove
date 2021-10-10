@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import { supabase } from '../../services/supabaseClient';
-import Link from "next/link";
 import styles from './styles/SignIn.module.scss';
 import toaster from '../../services/toaster';
 
 export default function ResetPassword() {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
-  const [success, setSuccess] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       setLoading(true)
-      const { data, error } = await supabase.auth.api.resetPasswordForEmail(email)
+      const { data, error } = await supabase.auth.api.resetPasswordForEmail(email, {redirectTo: `${window.location.protocol}//${window.location.host}/update-password`})
       if (error) throw error
       if(data) {
         toaster.success('Success', 'An email has been sent to you');

@@ -16,29 +16,30 @@ function MyApp({ Component, pageProps }) {
     analytics()
   },[])
 
-  const notRedirectingUrl = ['/', '/signIn', '/signUp', '/reset-password'];
+  const notRedirectingUrl = ['/', '/signIn', '/signUp', '/reset-password', '/update-password'];
   const router = useRouter();
 
   useEffect(() => {
-    if(userLoaded && router?.asPath) {
-      if(!notRedirectingUrl.includes(router.asPath) && !session && !appStarted) {
+    if(userLoaded && router?.pathname) {
+      console.log(router.asPath, 'router')
+      if(!notRedirectingUrl.includes(router.pathname) && !session && !appStarted) {
         router.push('/signIn');
       }
       setAppStarted(true);
     }
-  },[router?.asPath, session, appStarted, userLoaded])
+  },[router?.pathname, session, appStarted, userLoaded])
 
   useEffect(() => {
     setSession(supabase.auth.session())
     setUserLoaded(true);
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
-      if(_event === 'SIGNED_IN') {
-        router.push('/piggy-bank' || '/');
-      }
-      if(_event === 'SIGNED_OUT') {
-        router.push('/');
-      }
+        if(_event === 'SIGNED_IN' && router.pathname !== '/update-password') {
+          router.push('/piggy-bank' || '/');
+        }
+        if(_event === 'SIGNED_OUT') {
+          router.push('/');
+        }
     })
   }, [])
 
@@ -55,7 +56,7 @@ function MyApp({ Component, pageProps }) {
       })(window,document,'script','dataLayer','GTM-5T4KV72');`}} />
 
     {
-      (router?.asPath && !notRedirectingUrl.includes(router.asPath) && !session) ? 'loading' :  
+      (router?.pathname && !notRedirectingUrl.includes(router.pathname) && !session) ? 'loading' :  
       <MainLayout 
         session={session}
       >

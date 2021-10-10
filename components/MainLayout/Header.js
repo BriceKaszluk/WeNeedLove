@@ -9,7 +9,7 @@ import styles from './styles/Header.module.scss';
 import BurgerIcon from '../common/BurgerIcon';
 import toaster from '../../services/toaster';
 
-const NOT_REDIRECTING_URLS = ['/', '/signIn', '/signUp', '/reset-password'];
+const NOT_REDIRECTING_URLS = ['/', '/signIn', '/signUp', '/reset-password', '/update-password'];
 
 export default function Header({session}) {
 
@@ -32,7 +32,7 @@ export default function Header({session}) {
 
       fetchCounterNotif();
     }
-  }, [session, router?.asPath])
+  }, [session, router?.pathname])
 
   return(
     <div className={`flex_between ${styles.wrap}`}>
@@ -45,20 +45,20 @@ export default function Header({session}) {
       </div>
 
         {
-          (!NOT_REDIRECTING_URLS.includes(router.asPath)) && 
+          (!NOT_REDIRECTING_URLS.includes(router.pathname)) && 
           <div className={styles.burger_wrap}>
             <div className={`hide_on_large_screen ${styles.button_burger}`}
             >
               <BurgerIcon showNavbar={showNavbar} setShowNavbar={setShowNavbar}/>
             </div>
             <div className={`${showNavbar ? `${styles.mobile_wrap}` : styles.buttons_wrap}`}>
-              <div className={`flex_centered button_round ${router.asPath == '/need-love' ? 'active_button' : ''}`}>
+              <div className={`flex_centered button_round ${router.pathname == '/need-love' ? 'active_button' : ''}`}>
                 <Heart />
               </div>
-              <div className={`flex_centered button_round ${router.asPath == '/give-love' ? 'active_button' : ''}`}>
+              <div className={`flex_centered button_round ${router.pathname == '/give-love' ? 'active_button' : ''}`}>
                 <GiveHeart />
               </div>
-              <div className={`flex_centered button_round ${router.asPath == '/piggy-bank' ? 'active_button' : ''}`}>
+              <div className={`flex_centered button_round ${router.pathname == '/piggy-bank' ? 'active_button' : ''}`}>
                 <PiggyBank counterNotif={counterNotif} />
               </div>
               {
@@ -81,8 +81,8 @@ export default function Header({session}) {
         </div>
       }
       {
-        (!session && router.asPath !== '/signIn' && router.asPath !== '/signUp' && router.asPath !== '/reset-password') && 
-        <div className={router.asPath === '/' ? `${styles.home_auth}` : `flex_around ${styles.auth_wrap}`}>
+        (!session && router.pathname !== '/signIn' && router.pathname !== '/signUp' && router.pathname !== '/reset-password') && 
+        <div className={router.pathname === '/' ? `${styles.home_auth}` : `flex_around ${styles.auth_wrap}`}>
           <Link href='/signIn'>
             <a>
               <div className="button">Sign in</div>
