@@ -12,7 +12,6 @@ export default function ResetPassword() {
     e.preventDefault();
     try {
       setLoading(true)
-      console.log(`${window.location.protocol}//${window.location.host}/update-password`)
       const { data, error } = await supabase.auth.api.resetPasswordForEmail(email, {redirectTo: `${window.location.protocol}//${window.location.host}/update-password`})
       if (error) throw error
       if(data) {
