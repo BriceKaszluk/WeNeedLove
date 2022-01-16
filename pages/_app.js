@@ -20,12 +20,18 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     if(userLoaded && router?.pathname) {
-      if(!notRedirectingUrl.includes(router.pathname) && !session) {
+      if(session) {
+        supabase.auth.onAuthStateChange((_event) => {
+          if(_event === 'SIGNED_OUT') {
+            router.push('/');
+          }
+        })
+      } else if(!notRedirectingUrl.includes(router.pathname) && !session) {
         sessionStorage.setItem('redirectUrl', router.pathname);
         router.push('/signIn');
       }
     }
-  },[router?.pathname, session, userLoaded, router, notRedirectingUrl])
+  },[router?.pathname, userLoaded, router, notRedirectingUrl])
 
   useEffect(() => {
     setSession(supabase.auth.session())

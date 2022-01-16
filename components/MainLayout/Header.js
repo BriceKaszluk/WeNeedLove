@@ -66,7 +66,9 @@ export default function Header({session}) {
                 <div className="flex_centered button_round hide_on_large_screen">
                   <button 
                     className={`button_image ${styles.logout_button}`} 
-                    onClick={() => supabase.auth.signOut()}
+                    onClick={() => {
+                      supabase.auth.signOut();
+                    }}
                   >
                   </button>
                 </div>
@@ -78,7 +80,12 @@ export default function Header({session}) {
       {
         (session) &&
         <div className={`${styles.width} ${styles.logout_wrap}`}>
-          <button className="button hide_on_small_screen" onClick={() => supabase.auth.signOut()}>
+          <button 
+            className="button hide_on_small_screen" 
+            onClick={() => {
+              supabase.auth.signOut();
+            }}
+          >
             <span className={styles.button_text}>Sign Out</span>
           </button>
         </div>
