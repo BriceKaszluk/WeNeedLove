@@ -3,9 +3,12 @@
   background-size: cover;
   font-family: var(--font-family-system);
   min-height: 100vh;
+  width: 100%;
   box-sizing: border-box;
+  position: relative;
+  padding-bottom: 130px;
   @media (max-width: 768px) {
     background: linear-gradient(rgba(255, 230, 151, 0.2), rgba(255, 230, 151, 0.2)), url('../../../assets/main_background.jpg');
-    padding: 0 20px;
+    padding: 0 20px 130px 20px;
   }
 }

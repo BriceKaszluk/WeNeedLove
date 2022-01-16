@@ -10,10 +10,10 @@ a {
 
 footer {
   height: 130px;
-  margin-top: var(--spacing-largest);
   width: 100%;
-  position: relative;
+  position: absolute;
   bottom: 0;
+  left: 0;
 }
 
 :root {
