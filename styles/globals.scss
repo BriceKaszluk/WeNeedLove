@@ -12,6 +12,8 @@ footer {
   height: 130px;
   margin-top: var(--spacing-largest);
   width: 100%;
+  position: relative;
+  bottom: 0;
 }
 
 :root {
