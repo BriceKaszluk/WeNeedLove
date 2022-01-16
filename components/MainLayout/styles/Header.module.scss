@@ -10,6 +10,12 @@
 .logo {
   font-size: 2rem;
   font-family: var(--font-family-title);
+  color: var(--sand);
+  padding-left: 15px;
+  transition: color 0.5s;
+  &:hover {
+    color: var(--green);
+  }
   @media (max-width: 768px) {
     font-size: 1.7rem;
   }

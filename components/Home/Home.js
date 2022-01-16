@@ -43,36 +43,42 @@ export default function Home({session}) {
         </div>
         }
         <div className={styles.icons_grid}>
-          <div className={styles.card_wrap}>
-            <Image
-              src={img_need}
-              alt="Picture of heart"
-              width={96}
-              height={96}
-            />
-            <h4>share stories</h4>
-            <p className={styles.card_text}>tell your story anonymously, the community will support you without prejudice</p>
-          </div>
-          <div className={styles.card_wrap_middle}>
-            <Image
-              src={img_give}
-              alt="Picture of heart"
-              width={96}
-              height={96}
-            />  
-            <h4>support the community</h4>
-            <p className={styles.card_text}>support other members in their life adventure by sending them a message</p>        
-          </div>
-          <div className={styles.card_wrap}>
-            <Image
-              src={img_piggy}
-              alt="Picture of heart"
-              width={96}
-              height={96}
-            />
-            <h4>be supported</h4>
-            <p className={styles.card_text}>view community comments on your stories and like those who have helped you</p>   
-          </div>
+          <Link href="/need-love">
+            <a className={styles.card_wrap}>
+              <Image
+                src={img_need}
+                alt="Picture of heart"
+                width={96}
+                height={96}
+              />
+              <h4>share stories</h4>
+              <p className={styles.card_text}>tell your story anonymously, the community will support you without prejudice</p>
+            </a>
+          </Link>
+          <Link href="/give-love">
+            <a className={styles.card_wrap_middle}>
+              <Image
+                src={img_give}
+                alt="Picture of heart"
+                width={96}
+                height={96}
+              />  
+              <h4>support the community</h4>
+              <p className={styles.card_text}>support other members in their life adventure by sending them a message</p>        
+            </a>
+          </Link>
+          <Link href="/piggy-bank">
+            <a className={styles.card_wrap}>
+              <Image
+                src={img_piggy}
+                alt="Picture of heart"
+                width={96}
+                height={96}
+              />
+              <h4>be supported</h4>
+              <p className={styles.card_text}>view community comments on your stories and like those who have helped you</p>   
+            </a>
+          </Link>
         </div>
       </main>
     </div>

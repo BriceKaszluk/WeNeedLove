@@ -9,25 +9,23 @@ import { analytics } from '../services/firebaseClient';
 function MyApp({ Component, pageProps }) {
 
   const [session, setSession] = useState(null);
-  const [appStarted, setAppStarted] = useState(false);
   const [userLoaded, setUserLoaded] = useState(false);
+  const [notRedirectingUrl, setNotRedirectingUrl] = useState(['/', '/signIn', '/signUp', '/reset-password', '/update-password']);
 
   useEffect(() => {
     analytics()
   },[])
 
-  const notRedirectingUrl = ['/', '/signIn', '/signUp', '/reset-password', '/update-password'];
   const router = useRouter();
 
   useEffect(() => {
     if(userLoaded && router?.pathname) {
-      console.log(router.asPath, 'router')
-      if(!notRedirectingUrl.includes(router.pathname) && !session && !appStarted) {
+      if(!notRedirectingUrl.includes(router.pathname) && !session) {
+        sessionStorage.setItem('redirectUrl', router.pathname);
         router.push('/signIn');
       }
-      setAppStarted(true);
     }
-  },[router?.pathname, session, appStarted, userLoaded])
+  },[router?.pathname, session, userLoaded, router, notRedirectingUrl])
 
   useEffect(() => {
     setSession(supabase.auth.session())

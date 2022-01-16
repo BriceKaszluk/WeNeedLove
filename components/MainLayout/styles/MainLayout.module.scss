@@ -1,10 +1,9 @@
 .wrap {
-  background: var(--moon-dust);
+  background: url('../../../assets/main_background.jpg');
   background-size: cover;
   font-family: var(--font-family-system);
   min-height: 100vh;
   box-sizing: border-box;
-  padding-bottom: 50px;
   @media (max-width: 768px) {
     padding: 0 20px;
   }

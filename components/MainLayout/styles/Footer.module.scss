@@ -1,0 +1,8 @@
+.contact_link {
+  text-align: center;
+  color: var(--blue-40);
+  transition: color 0.5s;
+  &:hover {
+    color: var(--primary);
+  }
+}

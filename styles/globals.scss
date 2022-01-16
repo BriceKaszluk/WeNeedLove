@@ -8,6 +8,12 @@ a {
   color: var(--black);
 }
 
+footer {
+  height: 130px;
+  margin-top: var(--spacing-largest);
+  width: 100%;
+}
+
 :root {
   --primary: var(--blue-30);
   --primary-light: var(--blue-50);

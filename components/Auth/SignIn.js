@@ -3,11 +3,14 @@ import { supabase } from '../../services/supabaseClient';
 import Link from "next/link";
 import styles from './styles/SignIn.module.scss';
 import toaster from '../../services/toaster';
+import { useRouter } from "next/router";
 
 export default function SignIn() {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,6 +19,11 @@ export default function SignIn() {
       const { user, session, error } = await supabase.auth.signIn({  email,  password })
       if (error) throw error
       if(user && session) {
+        let redirectUrl = sessionStorage.getItem('redirectUrl');
+        if(redirectUrl) {
+          router.push(redirectUrl);
+          sessionStorage.removeItem('redirectUrl');
+        }
         toaster.success('Successfully logged in', 'Share a story or reply to others!');
       }
     } catch (error) {

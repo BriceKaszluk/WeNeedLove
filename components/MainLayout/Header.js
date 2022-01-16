@@ -64,7 +64,10 @@ export default function Header({session}) {
               {
                 (session) &&
                 <div className="flex_centered button_round hide_on_large_screen">
-                  <button className={`button_image ${styles.logout_button}`} onClick={() => supabase.auth.signOut()}>
+                  <button 
+                    className={`button_image ${styles.logout_button}`} 
+                    onClick={() => supabase.auth.signOut()}
+                  >
                   </button>
                 </div>
               }
