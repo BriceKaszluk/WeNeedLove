@@ -34,7 +34,7 @@ export default function ResetPassword() {
 
   return (
     <form className={`${styles.wrap}`} onSubmit={handleResetPassword}>
-      <h3 className="margin_bottom_medium">Recovery password</h3>
+      <h3 className="margin_bottom_medium">Récupérer mon mot de passe</h3>
       <label htmlFor="email">Email</label>
       <input
         id="email"
@@ -48,7 +48,7 @@ export default function ResetPassword() {
       />
 
       <button type="submit" className={`button ${styles.button_margin}`} disabled={loading}>
-        <span className={styles.button_text}>{loading ? 'Loading' : 'Send recovery password email'}</span>
+        <span className={styles.button_text}>{loading ? 'Chargement' : 'Envoyer un mail de récupération'}</span>
       </button>
     </form>
   );

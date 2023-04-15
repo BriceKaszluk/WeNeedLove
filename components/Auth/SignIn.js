@@ -59,7 +59,7 @@ export default function SignIn() {
           />
         <Link href='/signUp'>
           <a>
-            <div className="wrap_subtext_input"><span className="subtext_below_input">New here?</span><span className="link_below_input"> Create an account</span></div>
+            <div className="wrap_subtext_input"><span className="subtext_below_input">Tu est nouveau ?</span><span className="link_below_input"> Créer un compte</span></div>
           </a>
         </Link>
         <label htmlFor="password">Password</label>
@@ -68,14 +68,14 @@ export default function SignIn() {
             name="password"
             className="inputField"
             type="password"
-            placeholder="password"
+            placeholder="mot de passe"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         <Link href="/reset-password">
           <a>
-            <div className="wrap_subtext_input"><span className="subtext_below_input">Forgot your password?</span><span className="link_below_input"> Send new</span></div>
+            <div className="wrap_subtext_input"><span className="subtext_below_input">mot de passe oublié ?</span><span className="link_below_input"> Envoyer un nouveau</span></div>
           </a>
         </Link>
         <button

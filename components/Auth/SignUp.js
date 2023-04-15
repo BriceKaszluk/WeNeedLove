@@ -47,7 +47,7 @@ export default function SignUp() {
       onSubmit={handleSignUp}
       className={`${styles.wrap}`}
     >
-      <h3 className="margin_bottom_medium">Create an account</h3>
+      <h3 className="margin_bottom_medium">Créer un compte</h3>
       <label htmlFor="email">Email</label>
       <input
         id="email"
@@ -61,15 +61,15 @@ export default function SignUp() {
       />
       <Link href='/signIn'>
         <a>
-          <div className="wrap_subtext_input"><span className="subtext_below_input">Already joined?</span><span className="link_below_input"> login to your account</span></div>
+          <div className="wrap_subtext_input"><span className="subtext_below_input">Tu as déjà un compte ?</span><span className="link_below_input"> se connecter à mon compte</span></div>
         </a>
       </Link>
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password">Mot de passe</label>
       <input
         id="password"
         name="password"
         type="password"
-        placeholder="password"
+        placeholder="mot de passe"
         required
         value={password}
         onChange={(e) => setPassword(e.target.value)}
@@ -79,7 +79,7 @@ export default function SignUp() {
         name="password2"
         className={styles.inputField}
         type="password"
-        placeholder="repeat your password"
+        placeholder="répéter le mot de passe"
         required
         value={password2}
         onChange={(e) => setPassword2(e.target.value)}
