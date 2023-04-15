@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import styles from './styles/StoryInput.module.scss';
 import { supabase } from '../../services/supabaseClient';
-import toaster from '../../services/toaster';
+import { useToasterContext } from '../../contexts/ToasterContext';
 
 export default function StoryInput() {
 
   const [storyTitle, setStoryTitle] = useState('');
   const [userStory, setUserStory] = useState('');
+
+  const { addToast } = useToasterContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,10 +21,16 @@ export default function StoryInput() {
       if(data) {
         setStoryTitle('');
         setUserStory('');
-        toaster.success('Successfully posted', 'Congrats! your story is online!');
+        addToast({
+          message: 'Ton histoire est partagée, bravo pour ce premier pas !',
+          type: 'success',
+        });
       }
     } catch (error) {
-      toaster.error('Error', error.error_description || error.message);
+      addToast({
+        message: error.error_description || error.message,
+        type: 'error',
+      });
     }
   }
 
@@ -37,7 +45,7 @@ export default function StoryInput() {
           type="text" 
           name="story_title" 
           className={styles.title_input}
-          placeholder="My story title" 
+          placeholder="Titre de ton histoire" 
           size="30" 
           spellCheck 
           required
@@ -53,7 +61,7 @@ export default function StoryInput() {
           <textarea 
             className={styles.text_area} 
             name="story" 
-            placeholder="Tell us about your story..." 
+            placeholder="Dis nous en un peu plus..." 
             cols="100" 
             rows="10" 
             required
@@ -71,7 +79,7 @@ export default function StoryInput() {
         type="submit" 
         name="submitUserStory"
         >
-          <span className={styles.button_text}>Share my story</span>
+          <span className={styles.button_text}>Partager mon histoire</span>
         </button>
       </div>
     </form>

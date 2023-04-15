@@ -1,22 +1,25 @@
 import React, { useState } from 'react'
 import { supabase } from '../../services/supabaseClient'
 import styles from './styles/SignUp.module.scss';
-import toaster from '../../services/toaster';
+import { useToasterContext } from '../../contexts/ToasterContext';
 import { useRouter } from "next/router";
 
-export default function SignUp() {
+export default function UpdatePassword() {
 
   const [loading, setLoading] = useState(false)
   const [password, setPassword] = useState('')
   const [password2, setPassword2] = useState('')
-
+  const { addToast } = useToasterContext();
   const router = useRouter();
 
-  const handleLogin = async (e) => {
+  const handleUpdatePassword = async (e) => {
     e.preventDefault();
     if(password !== password2) {
-      toaster.error('Error', 'Passwords do not match');
-      return
+      addToast({
+        message: 'Les mots de passe ne correspondent pas',
+        type: 'error',
+      });
+      return;
     }
     try {
       setLoading(true)
@@ -24,14 +27,20 @@ export default function SignUp() {
       if(!accessToken) throw new Error('You have to click on the email link to change your password')
       const { error, data } = await supabase.auth.api.updateUser(accessToken, { password : password })
       if(data) {
-        toaster.success('Success', 'Your password has been updated');
+        addToast({
+          message: 'Ton mot de passe a bien été modifié',
+          type: 'success',
+        });
         router.push('/piggy-bank');
       }
       if (error) {
         throw error
       } 
     } catch (error) {
-      toaster.error('Error', error.error_description || error.message);
+      addToast({
+        message: error.error_description || error.message,
+        type: 'error',
+      });
     } finally {
       setLoading(false)
     }
@@ -39,7 +48,7 @@ export default function SignUp() {
 
   return (
     <form
-      onSubmit={handleLogin}
+      onSubmit={handleUpdatePassword}
       className={`${styles.wrap}`}
     >
       <h3 className="margin_bottom_medium">Update your password</h3>

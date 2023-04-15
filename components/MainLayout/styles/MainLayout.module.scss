@@ -1,5 +1,5 @@
 .wrap {
-  background: linear-gradient(rgba(255, 230, 151, 0.2), rgba(255, 230, 151, 0.2)), url('../../../assets/main_background.jpg');
+  background: linear-gradient(rgb(135, 206, 235), rgb(255, 182, 193), rgb(135, 206, 235));
   background-size: cover;
   font-family: var(--font-family-system);
   min-height: 100vh;
@@ -8,7 +8,6 @@
   position: relative;
   padding-bottom: 130px;
   @media (max-width: 768px) {
-    background: linear-gradient(rgba(255, 230, 151, 0.2), rgba(255, 230, 151, 0.2)), url('../../../assets/main_background.jpg');
     padding: 0 20px 130px 20px;
   }
 }

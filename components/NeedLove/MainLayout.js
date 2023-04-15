@@ -6,8 +6,8 @@ export default function MainLayout() {
 
   return (
     <div className={style.wrap}>   
-      <h1>Need Support</h1>
-      <p className="page_description_text"><strong>Tell your story</strong>, the community will support you without prejudice, <strong>it&apos;s anonymous😎 </strong>!</p>
+      <h1>Besoin d&apos;en parler ?</h1>
+      <p className="page_description_text"><strong>Raconte-nous ton histoire</strong>, la communauté te soutiendra avec bienveillance, <strong>ne t&apos;inquiète pas c&apos;est anonyme😎 </strong>!</p>
       <StoryInput />
     </div>
   )

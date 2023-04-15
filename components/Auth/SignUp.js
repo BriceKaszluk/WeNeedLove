@@ -1,32 +1,42 @@
-import React, { useState } from 'react'
-import { supabase } from '../../services/supabaseClient'
+import React, { useState } from 'react';
+import { supabase } from '../../services/supabaseClient';
 import Link from "next/link";
 import styles from './styles/SignUp.module.scss';
-import toaster from '../../services/toaster';
+import { useToasterContext } from '../../contexts/ToasterContext';
 
 export default function SignUp() {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [password2, setPassword2] = useState('')
+  const { addToast } = useToasterContext();
 
-  const handleLogin = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     if(password !== password2) {
-      toaster.error('Error', 'Passwords do not match');
+      addToast({
+        message: 'Les mots de passe ne correspondent pas',
+        type: 'error',
+      });
       return
     }
     try {
       setLoading(true)
-      const { user, session, error } = await supabase.auth.signUp({  email,  password })
+      const { user, session, error } = await supabase.auth.signUp({ email, password })
       if(user && session) {
-        toaster.success('Account created', 'thank you for joining us!');
+        addToast({
+          message: 'Ton compte est créé, bienvenue parmis nous !',
+          type: 'success',
+        });
       }
       if (error) {
         throw error
       } 
     } catch (error) {
-      toaster.error('Error', error.error_description || error.message);
+      addToast({
+        message: error.error_description || error.message,
+        type: 'error',
+      });
     } finally {
       setLoading(false)
     }
@@ -34,7 +44,7 @@ export default function SignUp() {
 
   return (
     <form
-      onSubmit={handleLogin}
+      onSubmit={handleSignUp}
       className={`${styles.wrap}`}
     >
       <h3 className="margin_bottom_medium">Create an account</h3>
@@ -79,7 +89,7 @@ export default function SignUp() {
         className={`button ${styles.button_margin}`}
         disabled={loading}
       >
-        <span className={styles.button_text}>{loading ? 'Loading' : 'Sign up'}</span>
+        <span className={styles.button_text}>{loading ? 'Loading' : 'Inscription'}</span>
       </button>
     </form>
   )

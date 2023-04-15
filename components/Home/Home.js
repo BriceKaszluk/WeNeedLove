@@ -1,13 +1,13 @@
-import React from 'react';
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
-import styles from './styles/Home.module.scss';
-import img_need from '../../assets/sad.png';
-import img_give from '../../assets/giveHeart.png';
-import img_piggy from '../../assets/piggy-bank.png';
+import React from "react";
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "./styles/Home.module.scss";
+import img_need from "../../assets/sad.png";
+import img_give from "../../assets/giveHeart.png";
+import img_piggy from "../../assets/piggy-bank.png";
 
-export default function Home({session}) {
+export default function Home({ session }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -16,32 +16,35 @@ export default function Home({session}) {
         <link rel="icon" href="/favicon.ico" />
 
         <meta property="og:title" content="WeNeedLove" />
-        <meta property="og:description" content="Share your story and give love to the world!" />
+        <meta
+          property="og:description"
+          content="Share your story and give love to the world!"
+        />
         <meta property="og:image" content="../../assets/giveHeart.png" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.logo}>WeNeedLove</h1>
         <span className={styles.main_title}>
-          Share your story, send support to community
+        Partage ton histoire et laisse la communauté te soutenir.
         </span>
-        <span className={styles.main_title_anonymous}>Anonymously</span>
-        {
-          !session && 
+        <span className={styles.main_title_anonymous}>ici pas de jugement c&apos;est anonyme !</span>
+        {!session && (
           <div className={`button ${styles.main_button}`}>
-          <Link href="/signUp">
-            <a className={styles.join_button_text}>Join 5,000 members community now</a>
-          </Link>
-        </div>
-        }
-        {
-          session && 
+            <Link href="/signUp">
+              <a className={styles.join_button_text}>
+                Rejoins la communauté !
+              </a>
+            </Link>
+          </div>
+        )}
+        {session && (
           <div className={`button ${styles.main_button}`}>
-          <Link href="/piggy-bank">
-            <a className={styles.join_button_text}>Access my dashboard</a>
-          </Link>
-        </div>
-        }
+            <Link href="/piggy-bank">
+              <a className={styles.join_button_text}>Access my dashboard</a>
+            </Link>
+          </div>
+        )}
         <div className={styles.icons_grid}>
           <Link href="/need-love">
             <a className={styles.card_wrap}>
@@ -51,8 +54,11 @@ export default function Home({session}) {
                 width={96}
                 height={96}
               />
-              <h4>share stories</h4>
-              <p className={styles.card_text}>tell your story anonymously, the community will support you without prejudice</p>
+              <h4>Partage ton histoire</h4>
+              <p className={styles.card_text}>
+              C&apos;est anonyme, la communauté te soutiendra
+              avec bienveillance
+              </p>
             </a>
           </Link>
           <Link href="/give-love">
@@ -62,9 +68,11 @@ export default function Home({session}) {
                 alt="Picture of heart"
                 width={96}
                 height={96}
-              />  
-              <h4>support the community</h4>
-              <p className={styles.card_text}>support other members in their life adventure by sending them a message</p>        
+              />
+              <h4>Soutien la communauté</h4>
+              <p className={styles.card_text}>
+              Envoie un message de soutien lorsqu&apos;une histoire te touche, on en a tous besoin un jour
+              </p>
             </a>
           </Link>
           <Link href="/piggy-bank">
@@ -75,14 +83,16 @@ export default function Home({session}) {
                 width={96}
                 height={96}
               />
-              <h4>be supported</h4>
-              <p className={styles.card_text}>view community comments on your stories and like those who have helped you</p>   
+              <h4>Reçois du soutien</h4>
+              <p className={styles.card_text}>
+              Consulte les commentaires que les autres membres t&apos;ont envoyés
+              </p>
             </a>
           </Link>
         </div>
       </main>
     </div>
-  )
+  );
 }
 
 //TODO: mettre les phrases des carte de la vitrine sur les pages concernées

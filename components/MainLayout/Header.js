@@ -7,7 +7,7 @@ import GiveHeart from '../common/GiveHeart';
 import PiggyBank from '../common/PiggyBank';
 import styles from './styles/Header.module.scss';
 import BurgerIcon from '../common/BurgerIcon';
-import toaster from '../../services/toaster';
+import { useToasterContext } from '../../contexts/ToasterContext';
 
 const NOT_REDIRECTING_URLS = ['/', '/signIn', '/signUp', '/reset-password', '/update-password'];
 
@@ -18,6 +18,8 @@ export default function Header({session}) {
   const [counterNotif, setCounterNotif] = useState(0);
   const [showNavbar, setShowNavbar] = useState(false);
 
+  const { addToast } = useToasterContext();
+
   useEffect(() => {
     if (session) {
       async function fetchCounterNotif () {
@@ -26,7 +28,10 @@ export default function Header({session}) {
           if (error) throw error;
           setCounterNotif(data)
         } catch(error) {
-          toaster.error('Error', error.error_description || error.message);
+          addToast({
+            message: error.error_description || error.message,
+            type: 'error',
+          });
         }
       }
 
@@ -86,7 +91,7 @@ export default function Header({session}) {
               supabase.auth.signOut();
             }}
           >
-            <span className={styles.button_text}>Sign Out</span>
+            <span className={styles.button_text}>Déconnexion</span>
           </button>
         </div>
       }
@@ -95,12 +100,12 @@ export default function Header({session}) {
         <div className={router.pathname === '/' ? `${styles.home_auth}` : `flex_around ${styles.auth_wrap}`}>
           <Link href='/signIn'>
             <a>
-              <div className="button">Sign in</div>
+              <div className="button">Connexion</div>
             </a>
           </Link>
           <Link href='/signUp'>
             <a>
-              <div className="button">Sign up</div>
+              <div className="button">Inscription</div>
             </a>
           </Link>
         </div>

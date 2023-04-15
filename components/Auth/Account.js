@@ -102,7 +102,7 @@ export default function Account({ session }) {
 
       <div>
         <button className="button block" onClick={() => supabase.auth.signOut()}>
-          Sign Out
+          Déconnexion
         </button>
       </div>
     </div>

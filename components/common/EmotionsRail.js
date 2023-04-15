@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from './styles/EmotionsRail.module.scss';
 import { supabase } from '../../services/supabaseClient';
-import toaster from '../../services/toaster';
+import { useToasterContext } from '../../contexts/ToasterContext';
 
 const LOGO = {
   clap: '👏',
@@ -17,6 +17,8 @@ function EmotionRailOld({emotion, comment}) {
   const [currentEmotion, setCurrentEmotion] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const { addToast } = useToasterContext();
+
   useEffect(() => {
     if(emotion) {
       setCurrentEmotion(emotion);
@@ -31,7 +33,10 @@ function EmotionRailOld({emotion, comment}) {
       if (error) throw error
     } 
     catch (error) {
-      toaster.error('Error', error.error_description || error.message);
+      addToast({
+        message: error.error_description || error.message,
+        type: 'error',
+      });
     } finally {
       setLoading(false);
     }

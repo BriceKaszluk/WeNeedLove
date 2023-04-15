@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { supabase } from '../../services/supabaseClient';
 import Link from "next/link";
 import styles from './styles/SignIn.module.scss';
-import toaster from '../../services/toaster';
 import { useRouter } from "next/router";
+import {useToasterContext} from '../../contexts/ToasterContext';
 
 export default function SignIn() {
   const [loading, setLoading] = useState(false)
@@ -11,6 +11,7 @@ export default function SignIn() {
   const [password, setPassword] = useState('')
 
   const router = useRouter();
+  const { addToast, toasts } = useToasterContext();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -24,10 +25,16 @@ export default function SignIn() {
           router.push(redirectUrl);
           sessionStorage.removeItem('redirectUrl');
         }
-        toaster.success('Successfully logged in', 'Share a story or reply to others!');
+        addToast({
+          message: 'Connexion réussie !',
+          type: 'success',
+        });
       }
     } catch (error) {
-      toaster.error('Error', error.error_description || error.message);
+      addToast({
+        message: error.error_description || error.message,
+        type: 'error',
+      });
     } finally {
       setLoading(false)
     }
@@ -38,7 +45,7 @@ export default function SignIn() {
         className={`${styles.wrap}`}
         onSubmit={handleLogin}
       >
-        <h3 className="margin_bottom_medium">Sign in</h3>
+        <h3 className="margin_bottom_medium">Connexion</h3>
         <label htmlFor="email">Email</label>
           <input
             id="email"
@@ -76,7 +83,7 @@ export default function SignIn() {
           className={`button ${styles.button_margin}`}
           disabled={loading}
         >
-          <span className={styles.button_text}>{loading ? 'Loading' : 'Sign in'}</span>
+          <span className={styles.button_text}>{loading ? 'Loading' : 'Connexion'}</span>
         </button>
       </form>
   )

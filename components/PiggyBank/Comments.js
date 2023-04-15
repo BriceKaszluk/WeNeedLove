@@ -3,13 +3,15 @@ import styles from './styles/Comments.module.scss';
 import EmotionsRail from '../common/EmotionsRail';
 import imgTrash from '../../assets/trash.svg';
 import Image from 'next/image';
-import toaster from '../../services/toaster';
+import { useToasterContext } from '../../contexts/ToasterContext';
 import { supabase } from '../../services/supabaseClient';
 
 export default function OneRowStory({comments, lastTimeSeen}) {
 
   const [showComments, setShowComments] = useState(false);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
+
+  const { addToast } = useToasterContext();
 
   const [hasNewComments, setHasNewComments] = useState(false);
   useEffect(() => {
@@ -29,11 +31,16 @@ export default function OneRowStory({comments, lastTimeSeen}) {
       .match({ id: commentId })
       if(error) throw error;
       if(data) {
-        console.log(data, 'delete return');
-        toaster.success('success', 'This comment has been deleted');
+        addToast({
+          message: 'Ce commentaire a été supprimé',
+          type: 'success',
+        });
       } 
     }catch(error) {
-      toaster.error('Error', error.error_description || error.message);
+      addToast({
+        message: error.error_description || error.message,
+        type: 'error',
+      });
     } finally {
       setLoading(false);
     }

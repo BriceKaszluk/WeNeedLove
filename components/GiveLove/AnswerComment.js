@@ -13,7 +13,7 @@ export default function AnswerComment({story, userAnswer, setUserAnswer, handleS
         autoFocus
         className={styles.text_area} 
         name="myInput" 
-        placeholder="support this person by sending him a message" 
+        placeholder="Soutiens ce membre en lui envoyant un message" 
         cols="100" 
         rows="10" 
         required
@@ -30,7 +30,7 @@ export default function AnswerComment({story, userAnswer, setUserAnswer, handleS
         type="submit" 
         name="submitUserAnswer"
         >
-          <span className={styles.button_text}>Send Love</span>
+          <span className={styles.button_text}>Envoyer mon soutien</span>
         </button>
       </div>
     </form>

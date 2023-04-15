@@ -45,7 +45,7 @@
 .join_button_text {
   font-size: 1.3rem;
   text-align: center;
-  color: var(--white);
+  color: black;
 }
 
 .main_button {
@@ -77,20 +77,22 @@
   text-align: center;
   padding:  15px 30px;
   font-family: var(--font-family-system);
-  color: var(--shade-05);
+  color: white;
   box-shadow: 0 2px 40px 0 rgba(0,0,0,.06);
   margin-top: var(--spacing-largest);
   border-radius: var(--radius-larger);
-  background-color: var(--white);
-  transition: background-color 2s;
+  background-color: white;
+  transition: background-color 1s;
   &:hover {
-    background-color: var(--green);
+    background-color: rgb(255,255,0);
+    color: black;
     cursor: pointer;
   }
   & h4 {
     margin-top: 0;
     font-size: 24px;
     color: var(--shade-05);
+    font-weight: bold;
   }
   @media (max-width: 768px) {
     width: 100%;
@@ -104,20 +106,22 @@
   text-align: center;
   padding:  15px 30px;
   font-family: var(--font-family-system);
-  color: var(--shade-05);
+  color: white;
   box-shadow: 0 2px 40px 0 rgba(0,0,0,.06);
   margin-top: var(--spacing-largest);
   border-radius: var(--radius-larger);
-  background-color: var(--white);
-  transition: background-color 2s;
+  background-color: white;
+  transition: background-color 1s;
   &:hover {
-    background-color: var(--green);
+    background-color: rgb(255,255,0);
+    color: black;
     cursor: pointer;
   }
   & h4 {
     margin-top: 0;
     font-size: 24px;
     color: var(--shade-05);
+    font-weight: bold;
   }
   @media (max-width: 768px) {
     width: 100%;

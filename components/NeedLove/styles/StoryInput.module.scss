@@ -14,7 +14,7 @@
 }
 
 .button_text {
-  color: var(--white);
+  color: var(--black);
   font-family: var(--font-family-system);
 }
 
@@ -38,6 +38,7 @@
   font-size: 30px;
   background-color: var(--white);
   border: none;
+  outline: none;
   &::placeholder {
     font-size: 30px;
   }

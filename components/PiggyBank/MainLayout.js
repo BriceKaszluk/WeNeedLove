@@ -10,25 +10,25 @@ export default function MainLayout({stories, countedEmotions, totalCommentsDone,
 
   return (
     <div className={styles.wrap}>
-      <h1>Piggy Bank</h1>
-      <p className="page_description_text">View <strong>community comments</strong> on your stories and like those who have <strong>helped you</strong>😍. Other features are in progress, <strong>stay tuned</strong>!😊</p>
+      <h1>Mon trésor</h1>
+      <p className="page_description_text">Consulte les <strong>commentaires envoyés par les membres</strong> et réagis à <strong>ceux qui t&apos;ont aidé</strong>😍. D&apos;autres fonctionnalités sont en cours de développement, <strong>un peu de patience</strong>!😊</p>
       <div className={styles.counters_wrap}>
         <TotalCommentsDone totalCommentsDone={totalCommentsDone}  />
         <MyEmotionsCounter countedEmotions={countedEmotions} />
       </div>
       <div className={styles.your_story_title_wrap}>
-        <h2>Your Stories</h2>
+        <h2>Tes histoires partagées</h2>
         <Link href="/need-love">
-          <a className={`button ${styles.button_give}`}>Write story</a>
+          <a className={`button ${styles.button_give}`}>Partager une histoire</a>
         </Link>
       </div>
       {
         stories && stories.length == 0 && 
-        <div className='flex_column_centered'>
-          <span className={styles.main_text}>you have no story to consult at the moment</span>
+        <div className='flex_column_centered text-center'>
+          <span className={styles.main_text}>Tu n&apos;a pas encore partagé d&apos;histoire pour le moment</span>
           <Link href='/need-love'>
             <a className={`button ${styles.link_wrap}`}>
-              <span className={styles.link_to_needLove}>create one now!</span>
+              <span className={styles.link_to_needLove}>J&apos;aimerais partager</span>
             </a>
           </Link>
         </div>

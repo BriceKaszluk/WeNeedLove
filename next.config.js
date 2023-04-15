@@ -1,5 +1,13 @@
 module.exports = {
   reactStrictMode: true,
+  watchOptions: {
+    ignored: [
+      '/mnt/c/DumpStack.log.tmp',
+      '/mnt/c/hiberfil.sys',
+      '/mnt/c/pagefile.sys',
+      '/mnt/c/swapfile.sys',
+    ]
+  },
   images: {
     domains: ['cdn.pixabay.com'],
   },
