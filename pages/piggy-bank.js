@@ -81,7 +81,10 @@ function PiggyBank() {
           setCountedEmotions(reduced);
         }
       } catch (error) {
-        toaster.error("Error", error.error_description || error.message);
+        addToast({
+          message: error.error_description || error.message,
+          type: "error",
+        });
       } finally {
         setLoading(false);
       }
@@ -98,7 +101,10 @@ function PiggyBank() {
           setTotalCommentsDone(data);
         }
       } catch (error) {
-        toaster.error("Error", error.error_description || error.message);
+        addToast({
+          message: error.error_description || error.message,
+          type: "error",
+        });
       } finally {
         setLoading(false);
       }

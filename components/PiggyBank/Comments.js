@@ -9,9 +9,18 @@ import { supabase } from '../../services/supabaseClient';
 export default function OneRowStory({comments, lastTimeSeen}) {
 
   const [showComments, setShowComments] = useState(false);
+  const [showNew, setShowNew] = useState(true);
   const [loading, setLoading] = useState(true);
 
   const { addToast } = useToasterContext();
+
+  const handleMouseEnter = () => {
+    setShowNew(false);
+  };
+
+  const handleMouseLeave = () => {
+    setShowNew(true);
+  };
 
   const [hasNewComments, setHasNewComments] = useState(false);
   useEffect(() => {
@@ -68,7 +77,12 @@ export default function OneRowStory({comments, lastTimeSeen}) {
               <EmotionsRail emotion={com.comments_emotions[0]?.emotion_id} comment={com}/>
               <div>
                 <p className={`justify_text ${styles.comment_border}`}>
-                  {new Date(com.created_at) > lastTimeSeen && <span className={`${styles.new_pill} ${styles.small_margin_right}`}>New</span>}
+                  {new Date(com.created_at) > lastTimeSeen && showNew && 
+                  <span 
+                  className={`${styles.new_pill} ${styles.small_margin_right}`}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  >New</span>}
                   {com.text}
                 </p>
               </div>
@@ -93,6 +107,3 @@ export default function OneRowStory({comments, lastTimeSeen}) {
   </div>
   )
 }
-
-//TODO: mettre une croix pour supprimer un commentaire + "êtes vous sur de vouloir supprimer ce com?" + toaster confirm
-//TODO: IMPORTANT un bouton notification de nouveau commentaire

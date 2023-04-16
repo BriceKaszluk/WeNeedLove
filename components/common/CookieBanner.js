@@ -33,7 +33,7 @@ const CookieBanner = () => {
   return (
     <>
       {!isAccepted && (
-        <div className="fixed bottom-4 left-0 md:left-4 z-50 bg-white text-gray-800 p-4 rounded-md border-2 border-gray-800 md:w-2/6">
+        <div className="fixed bottom-0 md:bottom-4 left-0 md:left-4 z-50 bg-white text-gray-800 p-4 rounded-md border-2 border-gray-800 md:w-2/6">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <p className="text-sm mr-2 mb-2 md:mb-0">Nous utilisons des cookies pour améliorer votre expérience de navigation sur notre site. <a href="/policy" className="underline">Politique de confidentialité</a></p>
             <div className="flex items-end justify-end w-full md:w-fit my-4">
