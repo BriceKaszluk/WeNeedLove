@@ -41,7 +41,7 @@ export default function Home({ session }) {
         {session && (
           <div className={`button ${styles.main_button}`}>
             <Link href="/piggy-bank">
-              <a className={styles.join_button_text}>Access my dashboard</a>
+              <a className={styles.join_button_text}>Accéder à mon espace</a>
             </Link>
           </div>
         )}
