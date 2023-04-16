@@ -96,7 +96,7 @@ export default function Account({ session }) {
           onClick={() => updateProfile({ username, website, avatar_url })}
           disabled={loading}
         >
-          {loading ? 'Loading ...' : 'Update'}
+          {loading ? 'Chargement...' : 'Update'}
         </button>
       </div>
 

@@ -83,7 +83,7 @@ export default function SignIn() {
           className={`button ${styles.button_margin}`}
           disabled={loading}
         >
-          <span className={styles.button_text}>{loading ? 'Loading' : 'Connexion'}</span>
+          <span className={styles.button_text}>{loading ? 'Chargement...' : 'Connexion'}</span>
         </button>
       </form>
   )

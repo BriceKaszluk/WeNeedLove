@@ -22,7 +22,7 @@ export default function MainLayout() {
       if (data) {
         setUserAnswer("");
         addToast({
-          message: "Ton message a été envoyé, emrci pour ton soutien !",
+          message: "Ton message a été envoyé, merci pour ton soutien !",
           type: "success",
         });
         fetchRandomStory();

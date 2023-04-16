@@ -78,7 +78,7 @@ export default function UpdatePassword() {
         className={`button ${styles.button_margin}`}
         disabled={loading}
       >
-        <span className={styles.button_text}>{loading ? 'Loading' : 'Update password'}</span>
+        <span className={styles.button_text}>{loading ? 'Chargement...' : 'Modifier le mot de passe'}</span>
       </button>
     </form>
   )
