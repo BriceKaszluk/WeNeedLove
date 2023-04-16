@@ -16,4 +16,7 @@ module.exports = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  publicRuntimeConfig: {
+    analyticsId: 'G-WMRZ98WS3M',
+  },
 }

@@ -4,9 +4,9 @@ import MainLayout from "../components/MainLayout/MainLayout";
 import { supabase } from "../services/supabaseClient";
 import { useRouter } from "next/router";
 import Script from "next/script";
-import { analytics } from "../services/firebaseClient";
 import { ToastProvider } from "../contexts/ToasterContext";
 import { ToastContainer } from "../components/common/ToastContainer";
+import getConfig from 'next/config';
 
 function MyApp({ Component, pageProps }) {
   const [session, setSession] = useState(null);
@@ -19,11 +19,22 @@ function MyApp({ Component, pageProps }) {
     "/update-password",
   ]);
 
-  useEffect(() => {
-    analytics();
-  }, []);
-
   const router = useRouter();
+  const { publicRuntimeConfig } = getConfig();
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${publicRuntimeConfig.analyticsId}`;
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', publicRuntimeConfig.analyticsId);
+  }, []);
 
   useEffect(() => {
     if (userLoaded && router?.pathname) {
