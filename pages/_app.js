@@ -7,6 +7,7 @@ import Script from "next/script";
 import { ToastProvider } from "../contexts/ToasterContext";
 import { ToastContainer } from "../components/common/ToastContainer";
 import getConfig from 'next/config';
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }) {
   const [session, setSession] = useState(null);
@@ -95,6 +96,7 @@ function MyApp({ Component, pageProps }) {
 
             <ToastContainer />
             <Component {...pageProps} session={session} />
+            <Analytics />
           </MainLayout>
         </ToastProvider>
       )}
