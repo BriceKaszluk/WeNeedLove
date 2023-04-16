@@ -10,7 +10,7 @@ export default function MainLayout({stories, countedEmotions, totalCommentsDone,
 
   return (
     <div className={styles.wrap}>
-      <h1>Mon trésor</h1>
+      <h1>Ton espace</h1>
       <p className="page_description_text">Consulte les <strong>commentaires envoyés par les membres</strong> et réagis à <strong>ceux qui t&apos;ont aidé</strong>😍. D&apos;autres fonctionnalités sont en cours de développement, <strong>un peu de patience</strong>!😊</p>
       <div className={styles.counters_wrap}>
         <TotalCommentsDone totalCommentsDone={totalCommentsDone}  />
