@@ -430,3 +430,10 @@ h3 {
   margin-bottom: var(--spacing-medium);
 }
 
+.icon_comments{
+  color: var(--blue-30);
+}
+
+.icon_comments * {
+  color: inherit;
+}
