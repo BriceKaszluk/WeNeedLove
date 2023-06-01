@@ -27,7 +27,7 @@ class MyDocument extends Document {
           <meta
             name="image"
             property="og:image"
-            content="https://www.webvista.fr/assets/weNeedLove_logo.png"
+            content="https://www.weneedlove.fr/public/main_background.jpg"
           />
           <meta property="og:image:width" content="1650" />
           <meta property="og:image:height" content="798" />
@@ -39,7 +39,7 @@ class MyDocument extends Document {
             content="N'ayez plus peur, partagez vos histoires anonymement et recevez le soutien de la communauté!"
           />
           <meta property="og:site_name" content="WeNeedLove" />
-          <link rel="shortcut icon" href="https://www.webvista.fr/assets/weNeedLove_logo.png" />
+          <link rel="shortcut icon" href="https://www.webvista.fr/public/weNeedLove_logo.png" />
           <Script
             strategy="afterInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=${publicRuntimeConfig.analyticsId}`}
