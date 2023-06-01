@@ -35,53 +35,51 @@ export default function StoryInput() {
   }
 
   return (
-    <form 
-    className={styles.wrap}
-    onSubmit={handleSubmit}
+<form 
+  className="w-full space-y-6"
+  onSubmit={handleSubmit}
+>
+  <div>
+    <input 
+      autoFocus
+      type="text" 
+      name="story_title" 
+      className="w-full p-2 border-2 border-gray-300 rounded-md"
+      placeholder="Titre de ton histoire" 
+      size="30" 
+      spellCheck 
+      required
+      value={storyTitle}
+      onChange={(e) => {
+        setStoryTitle(e.target.value);
+      }}
+    />
+  </div>
+  <div>
+    <textarea 
+      className="w-full p-2 h-48 border-2 border-gray-300 rounded-md" 
+      name="story" 
+      placeholder="Dis nous en un peu plus..." 
+      cols="100" 
+      rows="10" 
+      required
+      value={userStory}
+      onChange={(e) => {
+        setUserStory(e.target.value);
+      }}
     >
-      <div>
-        <input 
-          autoFocus
-          type="text" 
-          name="story_title" 
-          className={styles.title_input}
-          placeholder="Titre de ton histoire" 
-          size="30" 
-          spellCheck 
-          required
-          value={storyTitle}
-          onChange={(e) => {
-            setStoryTitle(e.target.value);
-          }}
-        >
-        </input>
-      </div>
-      <div>
-        <div className={styles.text_area_box}>
-          <textarea 
-            className={styles.text_area} 
-            name="story" 
-            placeholder="Dis nous en un peu plus..." 
-            cols="100" 
-            rows="10" 
-            required
-            value={userStory}
-            onChange={(e) => {
-              setUserStory(e.target.value);
-            }}
-          >
-          </textarea>
-        </div>
-      </div>
-      <div className="margin_button_wrap">
-        <button 
-        className={`button`}
-        type="submit" 
-        name="submitUserStory"
-        >
-          <span className={styles.button_text}>Partager mon histoire</span>
-        </button>
-      </div>
-    </form>
+    </textarea>
+  </div>
+  <div>
+    <button 
+      className="w-full p-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-500 transition-colors duration-300"
+      type="submit" 
+      name="submitUserStory"
+    >
+      <span className="font-semibold">Partager mon histoire</span>
+    </button>
+  </div>
+</form>
+
   )
 }

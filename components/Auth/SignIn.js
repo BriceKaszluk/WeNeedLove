@@ -1,11 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { supabase } from '../../services/supabaseClient';
 import Link from "next/link";
-import styles from './styles/SignIn.module.scss';
 import { useRouter } from "next/router";
 import {useToasterContext} from '../../contexts/ToasterContext';
 
-export default function SignIn() {
+export default function SignIn({setSignUp}) {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -41,51 +40,50 @@ export default function SignIn() {
   }
 
   return (
-      <form
-        className={`${styles.wrap}`}
-        onSubmit={handleLogin}
-      >
-        <h3 className="margin_bottom_medium">Connexion</h3>
-        <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            className="inputField"
-            type="email"
-            placeholder="john@doe.com"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        <Link href='/signUp'>
-          <a>
-            <div className="wrap_subtext_input"><span className="subtext_below_input">Tu est nouveau ?</span><span className="link_below_input"> Créer un compte</span></div>
-          </a>
-        </Link>
-        <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            className="inputField"
-            type="password"
-            placeholder="mot de passe"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        <Link href="/reset-password">
-          <a>
-            <div className="wrap_subtext_input"><span className="subtext_below_input">mot de passe oublié ?</span><span className="link_below_input"> Envoyer un nouveau</span></div>
-          </a>
-        </Link>
-        <button
-          type="submit"
-          className={`button ${styles.button_margin}`}
-          disabled={loading}
-        >
-          <span className={styles.button_text}>{loading ? 'Chargement...' : 'Connexion'}</span>
-        </button>
-      </form>
+<form
+  className="w-full max-w-sm mx-auto bg-white p-8 shadow-md"
+  onSubmit={handleLogin}
+>
+  <h3 className="mb-4 text-xl font-bold text-gray-900">Connexion</h3>
+  <label htmlFor="email" className="block text-gray-700">Email</label>
+  <input
+    id="email"
+    name="email"
+    className="mt-1 mb-4 px-4 py-2 border rounded-lg text-gray-700 w-full"
+    type="email"
+    placeholder="john@doe.com"
+    required
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+  />
+      <div className="flex justify-between items-center text-sm text-gray-600 mb-4">
+        <span>Tu es nouveau ?</span>
+        <span onClick={() => router.push('/?auth=signup') } className="text-blue-500 hover:text-blue-700 transition duration-150 cursor-pointer">Créer un compte</span>
+      </div>
+  <label htmlFor="password" className="block text-gray-700">Mot de passe</label>
+  <input
+    id="password"
+    name="password"
+    className="mt-1 mb-4 px-4 py-2 border rounded-lg text-gray-700 w-full"
+    type="password"
+    placeholder="mot de passe"
+    required
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+  />
+      <div className="flex justify-between items-center text-sm text-gray-600 mb-4">
+        <span>mot de passe oublié ?</span>
+        <span onClick={() => router.push('/?auth=resetPassword') } className="text-blue-500 hover:text-blue-700 transition duration-150 cursor-pointer">Envoyer un nouveau</span>
+      </div>
+  <button
+    type="submit"
+    className={`w-full px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-150 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+    disabled={loading}
+  >
+    {loading ? 'Chargement...' : 'Connexion'}
+  </button>
+</form>
+
   )
 }
 

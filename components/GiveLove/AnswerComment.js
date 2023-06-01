@@ -4,35 +4,30 @@ import styles from './styles/AnswerComment.module.scss';
 export default function AnswerComment({story, userAnswer, setUserAnswer, handleSubmit}) {
 
   return (
-    <form 
-    className={styles.wrap}
-    onSubmit={handleSubmit}
-    >
-      <div className={styles.text_area_box}>
-        <textarea 
-        autoFocus
-        className={styles.text_area} 
-        name="myInput" 
-        placeholder="Soutiens ce membre en lui envoyant un message" 
-        cols="100" 
-        rows="10" 
-        required
-        value={userAnswer}
-        onChange={(e) => {
-          setUserAnswer(e.target.value);
-        }}
-        >
-        </textarea>
-      </div>
-      <div className={styles.margin_button_wrap}>
-        <button 
-        className={`button ${styles.button_margin}`}
-        type="submit" 
-        name="submitUserAnswer"
-        >
-          <span className={styles.button_text}>Envoyer mon soutien</span>
-        </button>
-      </div>
-    </form>
+<form className="flex flex-col" onSubmit={handleSubmit}>
+  <textarea 
+    autoFocus
+    className="p-2 bg-white rounded-lg shadow-sm resize-none mb-4 text-gray-700" 
+    name="myInput" 
+    placeholder="Soutiens ce membre en lui envoyant un message" 
+    cols="100" 
+    rows="10" 
+    required
+    value={userAnswer}
+    onChange={(e) => {
+      setUserAnswer(e.target.value);
+    }}
+  />
+  <button 
+    className="mt-2 bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-500 transition-colors duration-300"
+    type="submit" 
+    name="submitUserAnswer"
+  >
+    <span>Envoyer mon soutien</span>
+  </button>
+</form>
+
+
+
   )
 }

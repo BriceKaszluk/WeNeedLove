@@ -64,32 +64,35 @@ export default function MainLayout() {
   }, []);
 
   return (
-    <div className={style.wrap}>
-      <h1>Partage ta positivité</h1>
-      <p className="page_description_text">
-      Soutiens les autres membres dans l&apos;aventure qu&apos;est la vie en leur{" "}
-        <strong>envoyant un message</strong>💪, prépare le bien car tu ne peux en envoyer{" "}
-        <strong>qu&apos;un seul</strong> ! ainsi pas de débat inutile on va à l&apos;essentiel👍, plutôt cool !
-      </p>
-      <div className={style.input_wrap}>
-        {!loading && story && (
-          <>
-            <OneStoryCard story={story} fetchRandomStory={fetchRandomStory} />
-            <AnswerComment
-              story={story}
-              userAnswer={userAnswer}
-              setUserAnswer={setUserAnswer}
-              handleSubmit={handleSubmit}
-            />
-          </>
-        )}
-        {!story && !loading && (
-          <div className={style.come_later}>
-            <h2>Tu as envoyé beaucoup de positivité, il n&apos;y a plus d&apos;histoire disponible pour le moment... reviens plus tard !</h2>
-          </div>
-        )}
+<div className="flex items-center justify-center h-full my-8 max-w-full">
+  <div className="container mx-auto p-4 md:p-8 max-w-screen-lg bg-white rounded-lg shadow-md">
+    <h1 className="text-3xl font-bold text-indigo-600 mb-4">Partage ta positivité</h1>
+    <p className="text-lg text-gray-700 mb-6">
+      Soutiens les autres membres dans l'aventure qu&apos;est la vie en leur envoyant un message💪, 
+      prépare le bien car tu ne peux en envoyer qu&apos;un seul ! 
+      Ainsi pas de débat inutile on va à l&apos;essentiel👍, plutôt cool !
+    </p>
+    {!loading && story && (
+      <>
+        <OneStoryCard story={story} fetchRandomStory={fetchRandomStory} />
+        <AnswerComment
+          story={story}
+          userAnswer={userAnswer}
+          setUserAnswer={setUserAnswer}
+          handleSubmit={handleSubmit}
+        />
+      </>
+    )}
+    {!story && !loading && (
+      <div className="mt-4">
+        <h2>Tu as envoyé beaucoup de positivité, il n&apos;y a plus d&apos;histoire disponible pour le moment... reviens plus tard !</h2>
       </div>
-    </div>
+    )}
+  </div>
+</div>
+
+
+
   );
 }
 

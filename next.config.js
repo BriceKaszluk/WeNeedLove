@@ -1,12 +1,18 @@
 module.exports = {
   reactStrictMode: true,
-  watchOptions: {
-    ignored: [
-      '/mnt/c/DumpStack.log.tmp',
-      '/mnt/c/hiberfil.sys',
-      '/mnt/c/pagefile.sys',
-      '/mnt/c/swapfile.sys',
-    ]
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // ignore specific files or directories
+      config.watchOptions = {
+        ignored: [
+          '/mnt/c/DumpStack.log.tmp',
+          '/mnt/c/hiberfil.sys',
+          '/mnt/c/pagefile.sys',
+          '/mnt/c/swapfile.sys',
+        ]
+      }
+    }
+    return config
   },
   images: {
     domains: ['cdn.pixabay.com'],

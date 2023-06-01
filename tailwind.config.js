@@ -20,7 +20,9 @@ module.exports = {
     })
   ],
   extend: {
-    // ...
+    backgroundImage: {
+      'homepage': "url('/public/main_background.jpg')",
+    },
     animation: {
       'toast-out': 'toast-out 1s ease-in-out',
     },

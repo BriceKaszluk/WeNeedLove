@@ -1,13 +1,12 @@
 .wrap {
-  background: linear-gradient(rgb(135, 206, 235), rgb(255, 182, 193), rgb(135, 206, 235));
-  background-size: cover;
+  padding: 0 20px 0 20px;
   font-family: var(--font-family-system);
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  position: relative;
-  padding-bottom: 130px;
+  overflow-x: hidden;
   @media (max-width: 768px) {
-    padding: 0 20px 130px 20px;
+    padding: 20px 20px 20px 20px;
+    min-height: 80vh;
   }
 }

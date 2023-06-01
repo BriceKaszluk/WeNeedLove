@@ -12,38 +12,20 @@ export default function MyEmotionsCounter({countedEmotions}) {
   };
 
   return (
-    <div>
-      <div className={styles.wrap}>
-      <h3>Les retours sur ton soutien</h3>
-        <div className="flex_centered">
-          {
-            Object.keys(LOGO).map((logoName, index) => {
-              return (
-                <div
-                  key={index}
-                  className={styles.display_emotions}
-                >
-                  <div
-                    aria-label="emoji"
-                    className="flex_column_centered"
-                  >
-                    <span
-                    >
-                      {LOGO[logoName]}
-                    </span>
-                    {
-                      countedEmotions && (
-                        <span className={styles.number}>{countedEmotions[logoName] || 0}</span>
-                      )
-                    }
-                  </div>
-              </div>
-              )
-            })
-          }
+<div className="space-y-4">
+  <h3 className="text-xl font-bold text-indigo-600 text-center">Les retours sur ton soutien</h3>
+  <div className="flex justify-center items-center space-x-4">
+    {
+      Object.keys(LOGO).map((logoName, index) => (
+        <div key={index} className="flex flex-col items-center justify-center space-y-2">
+          <span className="text-2xl">{LOGO[logoName]}</span>
+          <span className="text-xl font-bold text-indigo-600">{countedEmotions ? countedEmotions[logoName] || 0 : 0}</span>
         </div>
-      </div>
-    </div>
+      ))
+    }
+  </div>
+</div>
+
   )
 }
 

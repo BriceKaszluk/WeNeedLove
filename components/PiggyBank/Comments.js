@@ -56,54 +56,46 @@ export default function OneRowStory({comments, lastTimeSeen}) {
   }
 
   return (
-  <div className={styles.comment_wrap}>
-    <div 
-    className={`flexbox ${styles.form_comment}`}
+<div className="space-y-4">
+  <button 
+    className="flex items-center justify-between w-full py-2 px-4 rounded-lg bg-white shadow-sm text-indigo-600 hover:bg-gray-100 transition-colors duration-300"
     onClick={() => {setShowComments(!showComments)}}
-    >
-      <span className="story_comments_title">
-        Comments
-      </span>
-      {
-        hasNewComments && <span className={`${styles.new_pill} ${styles.small_margin_left}`}>New</span>
-      }
-      <div className={`arrow_down ${showComments && styles.flip_horizontal_bottom}`}></div>
+  >
+    <span>Comments</span>
+    <div className={`arrow_down transform transition-transform duration-300 ${showComments && "rotate-180"}`}>
+      
     </div>
-    <div  className={showComments ? "display" : "not_display"}>
-      {
-        comments.map(com => {
-          return (
-            <div key={com.id} id={com.id} className={`flexbox ${styles.one_comment_wrap}`}>
-              <EmotionsRail emotion={com.comments_emotions[0]?.emotion_id} comment={com}/>
-              <div>
-                <p className={`justify_text ${styles.comment_border}`}>
-                  {new Date(com.created_at) > lastTimeSeen && showNew && 
-                  <span 
-                  className={`${styles.new_pill} ${styles.small_margin_right}`}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  >New</span>}
-                  {com.text}
-                </p>
-              </div>
-              <div 
-                onClick={() => {
-                    if ( confirm( "Delete this comment?" ) ) {
-                      deleteComment(com.id);
-                      document.getElementById(com.id).style.display = 'none';
-                  }
-                }}
-                className={`${styles.button_delete_comment} flex_centered not_display`}>
-                  <Image
-                    src={imgTrash}
-                    alt="icon for delete comment"
-                  />
-              </div>
+  </button>
+  <div className={`${showComments ? "block" : "hidden"}`}>
+    {
+      comments.map(com => (
+        <div key={com.id} id={com.id} className="flex items-center space-x-4 p-4 rounded-lg bg-white shadow-sm mb-1">
+          <EmotionsRail emotion={com.comments_emotions[0]?.emotion_id} comment={com}/>
+          <div className="flex-grow">
+            <p className="text-lg text-gray-700 ">{com.text}</p>
+          </div>
+          <button 
+            onClick={() => {
+                if (confirm( "Delete this comment?" )) {
+                  deleteComment(com.id);
+                  document.getElementById(com.id).style.display = 'none';
+                }
+            }}
+            className="text-red-500 hover:text-red-700 transition-colors duration-300"
+          >
+            <div className="w-8 h-8">
+              <Image
+                src={imgTrash}
+                alt="icon for delete comment"
+                className='object-contain'
+              />
             </div>
-          )
-        })
-      }
-    </div>
+          </button>
+        </div>
+      ))
+    }
   </div>
+</div>
+
   )
 }
