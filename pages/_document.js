@@ -39,7 +39,7 @@ class MyDocument extends Document {
             content="N'ayez plus peur, partagez vos histoires anonymement et recevez le soutien de la communauté!"
           />
           <meta property="og:site_name" content="WeNeedLove" />
-          <link rel="shortcut icon" href="https://www.weneedlove.fr/assets/weNeedLove_logo.png" />
+          <link rel="shortcut icon" href="/weNeedLove_logo.png" />
           <Script
             strategy="afterInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=${publicRuntimeConfig.analyticsId}`}
