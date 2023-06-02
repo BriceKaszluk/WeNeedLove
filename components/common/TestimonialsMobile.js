@@ -22,7 +22,7 @@ function Testimonials() {
   }, []);
 
   return (
-<div className="flex justify-center items-center h-52 bg-transparent mt-8 relative overflow-hidden">
+<div className="flex justify-center items-center h-52 bg-transparent mt-4 relative overflow-hidden">
   {springs.map((props, i) => (
     <animated.div
       style={props}
