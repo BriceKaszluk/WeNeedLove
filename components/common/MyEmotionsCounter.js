@@ -12,8 +12,8 @@ export default function MyEmotionsCounter({countedEmotions}) {
   };
 
   return (
-<div className="space-y-4">
-  <h3 className="text-xl font-bold text-indigo-600 text-center">Les retours sur ton soutien</h3>
+<div className="space-y-4 my-8 md:my-0">
+  <h3 className="text-xl font-bold text-indigo-600 text-center">Réaction à mes commentaires</h3>
   <div className="flex justify-center items-center space-x-4">
     {
       Object.keys(LOGO).map((logoName, index) => (

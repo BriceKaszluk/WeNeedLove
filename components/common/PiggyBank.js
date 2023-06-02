@@ -8,12 +8,13 @@ function needLove({ counterNotif }) {
   return (
     <>
       <Link legacyBehavior href="/piggy-bank">
-        <a title="Mon espace">
+        <a title="Mon espace" className="flex items-center justify-start">
           {" "}
           <FontAwesomeIcon
-            className="w-11 h-11 m-auto"
+            className="w-11 h-11"
             icon={faHeartCirclePlus}
           />
+          <span className="md:hidden text-lg ml-2 text-black">Mon espace</span>
         </a>
       </Link>
       {counterNotif > 0 && (

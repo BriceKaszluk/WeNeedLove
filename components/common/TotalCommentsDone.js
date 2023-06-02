@@ -9,7 +9,7 @@ export default function TotalCommentsDone({ totalCommentsDone }) {
   <span className="text-4xl font-bold text-indigo-600">{totalCommentsDone || 0}</span>
   <Link legacyBehavior href="/give-love">
     <a className="mt-2 bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-500 transition-colors duration-300">
-      Envoyer du soutien
+      Commenter une histoire
     </a>
   </Link>
 </div>

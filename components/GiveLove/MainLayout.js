@@ -4,6 +4,7 @@ import AnswerComment from "./AnswerComment";
 import style from "./styles/MainLayout.module.scss";
 import { supabase } from "../../services/supabaseClient";
 import { useToasterContext } from "../../contexts/ToasterContext";
+import InfoTooltip from "../common/InfoTooltip";
 
 export default function MainLayout() {
   const [story, setStory] = useState(null);
@@ -64,35 +65,35 @@ export default function MainLayout() {
   }, []);
 
   return (
-<div className="flex items-center justify-center h-full my-8 max-w-full">
-  <div className="container mx-auto p-4 md:p-8 max-w-screen-lg bg-white rounded-lg shadow-md">
-    <h1 className="text-3xl font-bold text-indigo-600 mb-4">Partage ta positivité</h1>
-    <p className="text-lg text-gray-700 mb-6">
-      Soutiens les autres membres dans l'aventure qu&apos;est la vie en leur envoyant un message💪, 
-      prépare le bien car tu ne peux en envoyer qu&apos;un seul ! 
-      Ainsi pas de débat inutile on va à l&apos;essentiel👍, plutôt cool !
-    </p>
-    {!loading && story && (
-      <>
-        <OneStoryCard story={story} fetchRandomStory={fetchRandomStory} />
-        <AnswerComment
-          story={story}
-          userAnswer={userAnswer}
-          setUserAnswer={setUserAnswer}
-          handleSubmit={handleSubmit}
-        />
-      </>
-    )}
-    {!story && !loading && (
-      <div className="mt-4">
-        <h2>Tu as envoyé beaucoup de positivité, il n&apos;y a plus d&apos;histoire disponible pour le moment... reviens plus tard !</h2>
+    <div className="flex items-center justify-center h-full my-8 max-w-full">
+      <div className="container mx-auto p-4 md:p-8 max-w-screen-lg bg-white rounded-lg shadow-md">
+      <div className="flex items-start justify-center w-full mb-6">
+        <h1 className="text-3xl font-bold text-indigo-600 mb-6">Soutenir</h1>
+        <InfoTooltip classname="absolute">
+          <span>Dans cette section, vous pouvez lire les histoires des autres membres de manière aléatoire. Si vous vous sentez inspiré, n'hésitez pas à leur envoyer un commentaire de soutien. Si une histoire ne résonne pas avec vous, pas de souci, vous pouvez passer à la suivante. Rappelez-vous, un simple mot d'encouragement peut faire toute la différence pour quelqu'un</span>
+        </InfoTooltip>
       </div>
-    )}
-  </div>
-</div>
-
-
-
+        {!loading && story && (
+          <>
+            <OneStoryCard story={story} fetchRandomStory={fetchRandomStory} />
+            <AnswerComment
+              story={story}
+              userAnswer={userAnswer}
+              setUserAnswer={setUserAnswer}
+              handleSubmit={handleSubmit}
+            />
+          </>
+        )}
+        {!story && !loading && (
+          <div className="mt-4">
+            <h2>
+              Tu as envoyé beaucoup de positivité, il n&apos;y a plus
+              d&apos;histoire disponible pour le moment... reviens plus tard !
+            </h2>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
