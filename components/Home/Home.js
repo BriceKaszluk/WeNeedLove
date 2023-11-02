@@ -32,7 +32,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start mb-4">
           <div className="flex flex-col items-center text-center bg-black bg-opacity-50 p-4 rounded-lg shadow-md">
             <FontAwesomeIcon
-              class="w-24 h-24 m-auto text-indigo-600"
+              className="w-24 h-24 m-auto text-indigo-600"
               icon={faComments}
             />
             <h4 className="font-bold my-4 text-xl text-white">Exprime-toi librement</h4>
