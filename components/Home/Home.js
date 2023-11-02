@@ -30,41 +30,41 @@ export default function Home() {
     <div className="container mx-auto md:px-4 flex flex-col md:flex-row md:h-[100vh]">
       <main className="order-2 md:order-1 w-full md:w-2/3 p-4 md:mt-4 flex flex-col justify-around">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start mb-4">
-          <div className="flex flex-col items-center text-center bg-black bg-opacity-50 p-4 rounded-lg shadow-md text-white">
+          <div className="flex flex-col items-center text-center bg-black bg-opacity-50 p-4 rounded-lg shadow-md">
             <FontAwesomeIcon
               class="w-24 h-24 m-auto text-indigo-600"
               icon={faComments}
             />
-            <h4 className="font-bold my-4 text-xl">Exprime-toi librement</h4>
-            <p>
+            <h4 className="font-bold my-4 text-xl text-white">Exprime-toi librement</h4>
+            <p className="text-white">
               Ici, ton histoire est précieuse. Partage-la en toute confiance,
               c&apos;est totalement anonyme. L&apos;expression est un pas vers
               la guérison, n&apos;hésite pas.
             </p>
           </div>
 
-          <div className="flex flex-col items-center text-center bg-black bg-opacity-50 p-4 rounded-lg text-white shadow-md">
+          <div className="flex flex-col items-center text-center bg-black bg-opacity-50 p-4 rounded-lg shadow-md">
             <FontAwesomeIcon
               className="w-24 h-24 m-auto text-indigo-600"
               icon={faPeoplePulling}
             />
-            <h4 className="font-bold my-4 text-xl">Offre ton soutien </h4>
-            <p>
+            <h4 className="font-bold my-4 text-xl text-white">Offre ton soutien </h4>
+            <p className="text-white">
               Parfois, un simple message de soutien peut illuminer la journée de
               quelqu&apos;un. Si une histoire te touche, laisse une note
               d&apos;encouragement. Un geste de gentillesse peut avoir un impact
               incroyable.
             </p>
           </div>
-          <div className="flex flex-col items-center text-center bg-black bg-opacity-50 p-4 rounded-lg text-white shadow-md">
+          <div className="flex flex-col items-center text-center bg-black bg-opacity-50 p-4 rounded-lg shadow-md">
             <FontAwesomeIcon
               className="w-24 h-24 m-auto text-indigo-600"
               icon={faHeartCirclePlus}
             />
-            <h4 className="font-bold my-4 text-xl">
+            <h4 className="font-bold my-4 text-xl text-white">
               Sens l&apos;effet de la communauté{" "}
             </h4>
-            <p>
+            <p className="text-white">
               Ne te sens jamais seul. Consulte et reçois les commentaires que
               les autres membres ont laissés pour toi. Tu es précieux pour nous,
               laisse la communauté t&apos;apporter son soutien.
